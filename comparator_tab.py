@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import numpy as np
 import pandas as pd
-from dash import html, dcc, Input, Output
+from dash import html, dcc, Input, Output, callback
 import plotly.graph_objs as go
 
 # Properties shown in radar/table
@@ -62,9 +62,9 @@ def _normalize_col(series: pd.Series) -> pd.Series:
     return (series - mn) / (mx - mn)
 
 
-def register_callbacks(app, df_main: pd.DataFrame) -> None:
+def register_callbacks(df_main: pd.DataFrame) -> None:
 
-    @app.callback(
+    @callback(
         Output("comp-radar-chart", "figure"),
         Output("comp-table", "children"),
         Output("comp-elem-select", "options"),

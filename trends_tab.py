@@ -6,7 +6,7 @@ Trends Tab: periodic trend visualization.
 from __future__ import annotations
 
 import pandas as pd
-from dash import html, dcc, Input, Output
+from dash import html, dcc, Input, Output, callback
 
 import plotly.graph_objs as go
 
@@ -80,9 +80,9 @@ def create_trends_layout() -> html.Div:
     ])
 
 
-def register_callbacks(app, df_main: pd.DataFrame) -> None:
+def register_callbacks(df_main: pd.DataFrame) -> None:
 
-    @app.callback(
+    @callback(
         Output("trend-chart", "figure"),
         Output("trend-prop-select", "options"),
         Output("trend-view-select", "options"),

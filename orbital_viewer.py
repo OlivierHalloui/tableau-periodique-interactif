@@ -8,7 +8,7 @@ Implémentation : calcul numérique ψ_nlm sur grille 3D, isosurface Plotly.
 from __future__ import annotations
 
 import numpy as np
-from dash import html, dcc, Input, Output
+from dash import html, dcc, Input, Output, callback
 import plotly.graph_objs as go
 
 # ─── Catalogue des orbitales disponibles ────────────────────────────────────
@@ -199,9 +199,9 @@ def create_orbital_layout() -> html.Div:
     ])
 
 
-def register_callbacks(app) -> None:
+def register_callbacks() -> None:
 
-    @app.callback(
+    @callback(
         Output("orbital-3d-chart", "figure"),
         Output("orbital-info-text", "children"),
         Input("orbital-select", "value"),

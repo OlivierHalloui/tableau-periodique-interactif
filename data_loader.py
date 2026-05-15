@@ -310,6 +310,14 @@ COLOR_DEFAULT: str = "#37474f"
 
 ELEMENTS: list[dict] = load_elements()
 
+# Dicts indexés par Z et par symbole (premier occurrence — La/Ac non dupliqués)
+ELEMENTS_BY_Z: dict[int, dict] = {}
+for _el in ELEMENTS:
+    if _el["atomic_number"] not in ELEMENTS_BY_Z:
+        ELEMENTS_BY_Z[_el["atomic_number"]] = _el
+
+ELEMENTS_BY_SYM: dict[str, dict] = {el["symbol"]: el for el in ELEMENTS_BY_Z.values()}
+
 
 # ---------------------------------------------------------------------------
 # CLI de validation autonome

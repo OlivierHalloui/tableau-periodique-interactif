@@ -535,35 +535,34 @@ body {
 /* ─── Main tabs (top-level: Tableau / Tendances / Comparateur / Orbitales) ── */
 
 .main-tabs-bar {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgba(129, 212, 250, 0.2);
     margin-bottom: 0;
 }
 
-/* Override Dash tab container */
-.main-tabs-bar .tab-container {
-    border-bottom: 1px solid rgba(129, 212, 250, 0.2);
-}
-
 .main-tab {
-    padding: 11px 28px !important;
-    background: transparent !important;
-    border: none !important;
-    border-bottom: 2px solid transparent !important;
-    color: #90a4ae !important;
-    font-size: 0.93rem !important;
-    font-family: "Inter", "Segoe UI", Helvetica, Arial, sans-serif !important;
+    display: inline-block;
+    padding: 11px 28px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: #90a4ae;
+    font-size: 0.93rem;
+    font-family: "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
     cursor: pointer;
+    text-decoration: none;
     transition: color 0.15s, border-color 0.15s;
 }
 
 .main-tab:hover {
-    color: #cfd8dc !important;
+    color: #cfd8dc;
 }
 
 .main-tab--selected {
-    color: #81d4fa !important;
-    border-bottom: 2px solid #81d4fa !important;
-    font-weight: 600 !important;
-    background: transparent !important;
+    color: #81d4fa;
+    border-bottom: 2px solid #81d4fa;
+    font-weight: 600;
 }
 
 /* Content area under main tabs */
