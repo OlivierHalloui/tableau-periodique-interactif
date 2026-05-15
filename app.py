@@ -11,7 +11,7 @@
 # =============================================================================
 
 import dash
-from dash import html, dcc, Input, Output
+from dash import html, dcc, Input, Output, State, ctx
 import plotly.graph_objs as go
 import pandas as pd
 
@@ -453,6 +453,201 @@ _VDW = {
     112: 2.50, 113: 2.50, 114: 2.50, 115: 2.50, 116: 2.50, 117: 2.50, 118: 2.50,
 }
 
+# FR : Noms russes des 118 éléments, utilisés dans l'interface en langue russe.
+#      J'ai conservé la translittération officielle adoptée par l'IUPAC et l'ИЮПАК.
+# RU : Русские названия 118 элементов, используемые в русскоязычном интерфейсе.
+_NAME_RU = {
+    1: "Водород", 2: "Гелий", 3: "Литий", 4: "Бериллий", 5: "Бор",
+    6: "Углерод", 7: "Азот", 8: "Кислород", 9: "Фтор", 10: "Неон",
+    11: "Натрий", 12: "Магний", 13: "Алюминий", 14: "Кремний", 15: "Фосфор",
+    16: "Сера", 17: "Хлор", 18: "Аргон", 19: "Калий", 20: "Кальций",
+    21: "Скандий", 22: "Титан", 23: "Ванадий", 24: "Хром", 25: "Марганец",
+    26: "Железо", 27: "Кобальт", 28: "Никель", 29: "Медь", 30: "Цинк",
+    31: "Галлий", 32: "Германий", 33: "Мышьяк", 34: "Селен", 35: "Бром",
+    36: "Криптон", 37: "Рубидий", 38: "Стронций", 39: "Иттрий", 40: "Цирконий",
+    41: "Ниобий", 42: "Молибден", 43: "Технеций", 44: "Рутений", 45: "Родий",
+    46: "Палладий", 47: "Серебро", 48: "Кадмий", 49: "Индий", 50: "Олово",
+    51: "Сурьма", 52: "Теллур", 53: "Йод", 54: "Ксенон", 55: "Цезий",
+    56: "Барий", 57: "Лантан", 58: "Церий", 59: "Празеодим", 60: "Неодим",
+    61: "Прометий", 62: "Самарий", 63: "Европий", 64: "Гадолиний", 65: "Тербий",
+    66: "Диспрозий", 67: "Гольмий", 68: "Эрбий", 69: "Тулий", 70: "Иттербий",
+    71: "Лютеций", 72: "Гафний", 73: "Тантал", 74: "Вольфрам", 75: "Рений",
+    76: "Осмий", 77: "Иридий", 78: "Платина", 79: "Золото", 80: "Ртуть",
+    81: "Таллий", 82: "Свинец", 83: "Висмут", 84: "Полоний", 85: "Астат",
+    86: "Радон", 87: "Франций", 88: "Радий", 89: "Актиний", 90: "Торий",
+    91: "Протактиний", 92: "Уран", 93: "Нептуний", 94: "Плутоний", 95: "Америций",
+    96: "Кюрий", 97: "Берклий", 98: "Калифорний", 99: "Эйнштейний", 100: "Фермий",
+    101: "Менделевий", 102: "Нобелий", 103: "Лоуренсий", 104: "Резерфордий",
+    105: "Дубний", 106: "Сиборгий", 107: "Борий", 108: "Хассий", 109: "Мейтнерий",
+    110: "Дармштадтий", 111: "Рентгений", 112: "Коперниций", 113: "Нихоний",
+    114: "Флеровий", 115: "Московий", 116: "Ливерморий", 117: "Теннессин",
+    118: "Оганесон",
+}
+
+# FR : Dictionnaire de traductions FR/RU pour tous les textes de l'interface.
+#      J'ai regroupé toutes les chaînes en un seul endroit pour faciliter la
+#      maintenance : ajouter une langue (anglais, par exemple) ne nécessite
+#      qu'un nouveau sous-dictionnaire, sans toucher aux callbacks.
+# RU : Словарь переводов FR/RU для всех строк интерфейса. Я объединил все
+#      строки в одном месте для удобства сопровождения: добавление нового
+#      языка (например, английского) требует лишь нового подсловаря.
+LANG = {
+    "fr": {
+        "title": "Tableau périodique interactif",
+        "subtitle": "Explorez les 118 éléments chimiques avec leurs propriétés scientifiques et une interface responsive en français.",
+        "detail_title": "Détails de l'élément",
+        "click_hint": "Cliquez sur une case du tableau pour afficher les propriétés de l'élément.",
+        "group_ph": "Filtrer par groupe",
+        "group_label": "Groupe",
+        "block_ph": "Filtrer par bloc",
+        "ecp_ph": "Filtrer par traitement ECP",
+        "search_ph": "Rechercher par nom ou symbole",
+        "blocks": [
+            {"label": "Bloc s  (alcalins, alcalino-terreux, H, He)", "value": "s"},
+            {"label": "Bloc p  (non-métaux, halogènes, gaz nobles…)", "value": "p"},
+            {"label": "Bloc d  (métaux de transition)", "value": "d"},
+            {"label": "Bloc f  (lanthanides & actinides)", "value": "f"},
+        ],
+        "ecps": [
+            {"label": "Tous-électrons (Z ≤ 18)", "value": "Tous-électrons"},
+            {"label": "ECP optionnel (Z 19–36)", "value": "ECP optionnel"},
+            {"label": "ECP recommandé (Z 37–54)", "value": "ECP recommandé"},
+            {"label": "ECP requis (Z 55–86)", "value": "ECP requis"},
+            {"label": "ECP / relativiste (Z ≥ 87)", "value": "ECP/relativiste"},
+        ],
+        "categories": {
+            "métal alcalin": "Métal alcalin",
+            "métal alcalino-terreux": "Métal alcalino-terreux",
+            "lanthanide": "Lanthanide",
+            "actinide": "Actinide",
+            "métal de transition": "Métal de transition",
+            "post-transition metal": "Métal post-transition",
+            "métalloïde": "Métalloïde",
+            "non-metal": "Non-métal",
+            "halogène": "Halogène",
+            "gaz noble": "Gaz noble",
+            "métal": "Métal",
+        },
+        "ecp_values": {
+            "Tous-électrons": "Tous-électrons",
+            "ECP optionnel": "ECP optionnel",
+            "ECP recommandé": "ECP recommandé",
+            "ECP requis": "ECP requis",
+            "ECP/relativiste": "ECP/relativiste",
+        },
+        "relat_values": {
+            "Négligeable": "Négligeable",
+            "Faible (optionnel)": "Faible (optionnel)",
+            "Scalaire (DKH2 / ZORA)": "Scalaire (DKH2 / ZORA)",
+            "Scalaire + spin-orbite partiel": "Scalaire + spin-orbite partiel",
+            "Spin-orbite requis (X2C / 4c-DHF)": "Spin-orbite requis (X2C / 4c-DHF)",
+        },
+        "disp_values": {"D3BJ (Grimme)": "D3BJ (Grimme)", "N/A": "N/A"},
+        "pseudo_none": "Aucun",
+        "sec_electronic": "Structure électronique",
+        "sec_atomic": "Propriétés atomiques",
+        "sec_compchem": "Modélisation computationnelle",
+        "lbl_ox": "États d'oxydation",
+        "lbl_spin": "Multiplicité de spin (2S+1)",
+        "lbl_ie1": "1ʳᵉ énergie d'ionisation",
+        "lbl_ea": "Affinité électronique",
+        "lbl_alpha": "Polarisabilité (α)",
+        "lbl_vdw": "Rayon de van der Waals",
+        "lbl_vol": "Volume molaire",
+        "lbl_ecp": "Traitement ECP",
+        "lbl_basis": "Basis sets recommandés",
+        "lbl_pseudo": "Pseudopotentiel",
+        "lbl_func": "Fonctionnelle DFT",
+        "lbl_disp": "Correction de dispersion",
+        "lbl_relat": "Effets relativistes",
+        "lbl_group": "Groupe",
+        "lbl_period": "Période",
+        "lbl_block": "Bloc",
+        "bse_link": "Basis Set Exchange →",
+        "footer_data": "Données scientifiques : IUPAC, CRC Handbook, NIST · Basis Set Exchange (basissetexchange.org)",
+        "footer_credit": "Développé par Saloua EL FAKIR — Master 1 Chimie Informatique",
+        "hover_bloc": "Bloc",
+        "na": "N/A",
+    },
+    "ru": {
+        "title": "Интерактивная таблица Менделеева",
+        "subtitle": "Исследуйте 118 химических элементов с их научными свойствами — интерфейс доступен на русском языке.",
+        "detail_title": "Сведения об элементе",
+        "click_hint": "Нажмите на ячейку таблицы, чтобы отобразить свойства элемента.",
+        "group_ph": "Фильтр по группе",
+        "group_label": "Группа",
+        "block_ph": "Фильтр по блоку",
+        "ecp_ph": "Фильтр по обработке ЭКП",
+        "search_ph": "Поиск по названию или символу",
+        "blocks": [
+            {"label": "Блок s  (щелочные, щёлочноземельные, H, He)", "value": "s"},
+            {"label": "Блок p  (неметаллы, галогены, благородные газы…)", "value": "p"},
+            {"label": "Блок d  (переходные металлы)", "value": "d"},
+            {"label": "Блок f  (лантаноиды и актиноиды)", "value": "f"},
+        ],
+        "ecps": [
+            {"label": "Все электроны (Z ≤ 18)", "value": "Tous-électrons"},
+            {"label": "ЭКП необязателен (Z 19–36)", "value": "ECP optionnel"},
+            {"label": "ЭКП рекомендуется (Z 37–54)", "value": "ECP recommandé"},
+            {"label": "ЭКП необходим (Z 55–86)", "value": "ECP requis"},
+            {"label": "ЭКП / релятивистский (Z ≥ 87)", "value": "ECP/relativiste"},
+        ],
+        "categories": {
+            "métal alcalin": "Щелочной металл",
+            "métal alcalino-terreux": "Щёлочноземельный металл",
+            "lanthanide": "Лантаноид",
+            "actinide": "Актиноид",
+            "métal de transition": "Переходный металл",
+            "post-transition metal": "Постпереходный металл",
+            "métalloïde": "Металлоид",
+            "non-metal": "Неметалл",
+            "halogène": "Галоген",
+            "gaz noble": "Благородный газ",
+            "métal": "Металл",
+        },
+        "ecp_values": {
+            "Tous-électrons": "Все электроны",
+            "ECP optionnel": "ЭКП необязателен",
+            "ECP recommandé": "ЭКП рекомендуется",
+            "ECP requis": "ЭКП необходим",
+            "ECP/relativiste": "ЭКП / релятивистский",
+        },
+        "relat_values": {
+            "Négligeable": "Пренебрежимо мал",
+            "Faible (optionnel)": "Слабый (необязательно)",
+            "Scalaire (DKH2 / ZORA)": "Скалярный (DKH2 / ZORA)",
+            "Scalaire + spin-orbite partiel": "Скалярный + спин-орбитальный (частично)",
+            "Spin-orbite requis (X2C / 4c-DHF)": "Спин-орбитальный необходим (X2C / 4c-DHF)",
+        },
+        "disp_values": {"D3BJ (Grimme)": "D3BJ (Гримме)", "N/A": "Н/П"},
+        "pseudo_none": "Отсутствует",
+        "sec_electronic": "Электронная структура",
+        "sec_atomic": "Атомные свойства",
+        "sec_compchem": "Вычислительное моделирование",
+        "lbl_ox": "Степени окисления",
+        "lbl_spin": "Мультиплетность (2S+1)",
+        "lbl_ie1": "1-й потенциал ионизации",
+        "lbl_ea": "Сродство к электрону",
+        "lbl_alpha": "Поляризуемость (α)",
+        "lbl_vdw": "Радиус ван-дер-Ваальса",
+        "lbl_vol": "Молярный объём",
+        "lbl_ecp": "Обработка ЭКП",
+        "lbl_basis": "Рекомендуемые базисные наборы",
+        "lbl_pseudo": "Псевдопотенциал",
+        "lbl_func": "DFT-функционал",
+        "lbl_disp": "Поправка на дисперсию",
+        "lbl_relat": "Релятивистские эффекты",
+        "lbl_group": "Группа",
+        "lbl_period": "Период",
+        "lbl_block": "Блок",
+        "bse_link": "Basis Set Exchange →",
+        "footer_data": "Научные данные: IUPAC, CRC Handbook, NIST · Basis Set Exchange (basissetexchange.org)",
+        "footer_credit": "Разработано Saloua EL FAKIR — Магистратура, вычислительная химия",
+        "hover_bloc": "Блок",
+        "na": "Н/П",
+    },
+}
+
 
 # FR : Attribution du bloc orbital (s/p/d/f) selon la configuration
 #      électronique de l'état fondamental. J'utilise des ensembles Python
@@ -581,6 +776,7 @@ for _el in ELEMENTS:
     _el["functional"] = _functional(_z)
     _el["dispersion"] = _dispersion(_z)
     _el["relativistic"] = _relativistic(_z)
+    _el["name_ru"] = _NAME_RU.get(_z, _el["name"])
 
 # FR : Palette de couleurs par catégorie chimique. J'ai choisi des teintes
 #      pastel saturées sur fond sombre pour maximiser la lisibilité sans
@@ -634,12 +830,26 @@ df["color"] = df["category"].map(CATEGORY_COLORS).fillna(COLOR_DEFAULT)
 app.layout = html.Div(
     className="app-container",
     children=[
+        dcc.Store(id="lang", data="fr"),
         html.Header(
             className="hero",
             children=[
-                html.H1("Tableau périodique interactif"),
+                html.Div(
+                    className="hero-top",
+                    children=[
+                        html.H1("Tableau périodique interactif", id="app-title"),
+                        html.Div(
+                            className="lang-toggle",
+                            children=[
+                                html.Button("FR", id="btn-fr", className="lang-btn active", n_clicks=0),
+                                html.Button("RU", id="btn-ru", className="lang-btn", n_clicks=0),
+                            ],
+                        ),
+                    ],
+                ),
                 html.P(
-                    "Explorez les 118 éléments chimiques avec leurs propriétés scientifiques et une interface responsive en français."
+                    "Explorez les 118 éléments chimiques avec leurs propriétés scientifiques et une interface responsive en français.",
+                    id="app-subtitle",
                 ),
             ],
         ),
@@ -687,6 +897,7 @@ app.layout = html.Div(
             ],
         ),
         html.Div(
+            id="legend-row",
             className="legend-row",
             children=[
                 html.Span([
@@ -712,7 +923,7 @@ app.layout = html.Div(
                 html.Div(
                     className="detail-card",
                     children=[
-                        html.H2("Détails de l'élément"),
+                        html.H2("Détails de l'élément", id="detail-card-title"),
                         html.Div(
                             id="element-details",
                             className="details-content",
@@ -727,8 +938,8 @@ app.layout = html.Div(
         html.Footer(
             className="footer",
             children=[
-                html.P("Données scientifiques : IUPAC, CRC Handbook, NIST · Basis Set Exchange (basissetexchange.org)"),
-                html.P("Développé par Saloua EL FAKIR — Master 1 Chimie Informatique", className="footer-credit"),
+                html.P("Données scientifiques : IUPAC, CRC Handbook, NIST · Basis Set Exchange (basissetexchange.org)", id="footer-data"),
+                html.P("Développé par Saloua EL FAKIR — Master 1 Chimie Informatique", className="footer-credit", id="footer-credit"),
             ],
         ),
     ],
@@ -754,7 +965,7 @@ app.layout = html.Div(
 #      соотношения сторон. Отфильтрованные элементы выделяются (opacity 1.0),
 #      остальные затемняются (opacity 0.14) — так взгляд направляется,
 #      не теряя контекстной информации.
-def build_periodic_figure(group_filter=None, block_filter=None, ecp_filter=None, search_value=""):
+def build_periodic_figure(group_filter=None, block_filter=None, ecp_filter=None, search_value="", lang="fr"):
     search_value = (search_value or "").strip().lower()
     is_match = pd.Series(True, index=df.index)
 
@@ -765,28 +976,32 @@ def build_periodic_figure(group_filter=None, block_filter=None, ecp_filter=None,
     if ecp_filter is not None:
         is_match &= df["ecp_type"] == ecp_filter
     if search_value:
+        # FR : En mode russe, la recherche porte aussi sur le nom russe.
+        # RU : В русском режиме поиск охватывает и русское название.
+        name_col = "name_ru" if lang == "ru" else "name"
         is_match &= df.apply(
-            lambda row: search_value in row["name"].lower() or search_value in row["symbol"].lower(),
+            lambda row: search_value in row[name_col].lower() or search_value in row["symbol"].lower(),
             axis=1,
         )
 
-    # FR : "customdata" est le mécanisme Plotly pour attacher des données
-    #      arbitraires à chaque point sans les afficher. Ici, je transporte
-    #      19 champs par élément, récupérés dans le callback de clic via
-    #      click_data["points"][0]["customdata"]. C'est plus robuste que de
-    #      faire une jointure sur le numéro atomique côté callback.
-    # RU : "customdata" — механизм Plotly для прикрепления произвольных
-    #      данных к каждой точке без их отображения. Здесь я передаю
-    #      19 полей на элемент, которые извлекаются в callback клика через
-    #      click_data["points"][0]["customdata"]. Это надёжнее, чем
-    #      выполнять соединение по атомному номеру на стороне callback.
+    # FR : "customdata" transporte 20 champs par élément (indice 19 = nom russe),
+    #      récupérés dans le callback de clic.
+    # RU : "customdata" переносит 20 полей на элемент (индекс 19 = русское название).
     customdata_cols = df[[
         "atomic_number", "symbol", "name", "group", "period",
         "block", "ecp_type", "basis_rec", "pseudo",
         "polarisabilite", "etats_ox", "volume_molaire",
         "ie1", "ea", "spin_mult", "vdw_radius",
-        "functional", "dispersion", "relativistic",
+        "functional", "dispersion", "relativistic", "name_ru",
     ]].values
+
+    t = LANG[lang]
+    name_idx = 19 if lang == "ru" else 2
+    hover = (
+        f"%{{customdata[1]}}<br>%{{customdata[{name_idx}]}}"
+        f"<br>Z = %{{customdata[0]}} · {t['hover_bloc']} %{{customdata[5]}}"
+        f"<br>IE₁ = %{{customdata[12]}} eV<extra></extra>"
+    )
 
     fig = go.Figure()
 
@@ -829,7 +1044,7 @@ def build_periodic_figure(group_filter=None, block_filter=None, ecp_filter=None,
             family="Inter",
         ),
         customdata=customdata_cols,
-        hovertemplate="%{customdata[1]}<br>%{customdata[2]}<br>Z = %{customdata[0]} · Bloc %{customdata[5]}<br>IE₁ = %{customdata[12]} eV<extra></extra>",
+        hovertemplate=hover,
         showlegend=False,
     ))
 
@@ -920,9 +1135,10 @@ def build_periodic_figure(group_filter=None, block_filter=None, ecp_filter=None,
     Input("block-filter", "value"),
     Input("ecp-filter", "value"),
     Input("search-input", "value"),
+    Input("lang", "data"),
 )
-def update_graph(group_value, block_value, ecp_value, search_value):
-    return build_periodic_figure(group_value, block_value, ecp_value, search_value)
+def update_graph(group_value, block_value, ecp_value, search_value, lang):
+    return build_periodic_figure(group_value, block_value, ecp_value, search_value, lang or "fr")
 
 
 # FR : Callback de clic sur une case du tableau. clickData contient la
@@ -938,20 +1154,31 @@ def update_graph(group_value, block_value, ecp_value, search_value):
 #      списком в build_periodic_figure. Локальная функция "section()"
 #      инкапсулирует создание повторяющихся HTML-блоков — это эквивалент
 #      переиспользуемого компонента Dash без использования класса.
-@app.callback(Output("element-details", "children"), Input("periodic-figure", "clickData"))
-def display_element_details(click_data):
+@app.callback(
+    Output("element-details", "children"),
+    Input("periodic-figure", "clickData"),
+    Input("lang", "data"),
+)
+def display_element_details(click_data, lang):
+    # FR : On utilise le state de la langue pour afficher les libellés et
+    #      le nom de l'élément dans la langue sélectionnée.
+    # RU : Состояние языка используется для отображения подписей и
+    #      названия элемента на выбранном языке.
+    t = LANG[lang or "fr"]
+
     if not click_data or not click_data.get("points"):
-        return [html.P("Cliquez sur une case du tableau pour afficher les propriétés de l'élément.")]
+        return [html.P(t["click_hint"])]
 
     d = click_data["points"][0]["customdata"]
-    # indices: 0=Z 1=sym 2=name 3=group 4=period 5=block 6=ecp 7=basis 8=pseudo
-    #          9=alpha 10=ox 11=vol 12=ie1 13=ea 14=spin 15=vdw 16=func 17=disp 18=relat
+    # indices: 0=Z 1=sym 2=name(FR) 3=group 4=period 5=block 6=ecp 7=basis 8=pseudo
+    #          9=alpha 10=ox 11=vol 12=ie1 13=ea 14=spin 15=vdw 16=func 17=disp 18=relat 19=name_ru
 
-    z, sym, name = int(d[0]), d[1], d[2]
+    z, sym = int(d[0]), d[1]
+    name = d[19] if lang == "ru" else d[2]
     group, period, block = int(d[3]), int(d[4]), d[5]
 
     def fmt(v, unit="", decimals=3):
-        return f"{round(v, decimals)} {unit}".strip() if v is not None else "N/A"
+        return f"{round(v, decimals)} {unit}".strip() if v is not None else t["na"]
 
     def section(title, rows):
         return html.Div(className="detail-section", children=[
@@ -961,42 +1188,126 @@ def display_element_details(click_data):
             ]),
         ])
 
+    ecp_val = t["ecp_values"].get(d[6], d[6])
+    relat_val = t["relat_values"].get(d[18], d[18])
+    disp_val = t["disp_values"].get(d[17], d[17])
+    pseudo_val = t["pseudo_none"] if d[8] == "Aucun" else d[8]
+
     return [
         html.Div(className="detail-header", children=[
             html.H3(f"{name} ({sym})"),
             html.Span(
-                f"Z = {z}  ·  Groupe {group}  ·  Période {period}  ·  Bloc {block}",
+                f"Z = {z}  ·  {t['lbl_group']} {group}  ·  {t['lbl_period']} {period}  ·  {t['lbl_block']} {block}",
                 className="detail-subtitle",
             ),
         ]),
-        section("Structure électronique", [
-            ("États d'oxydation", d[10]),
-            ("Multiplicité de spin (2S+1)", str(int(d[14])) if d[14] is not None else "N/A"),
-            ("1ʳᵉ énergie d'ionisation", fmt(d[12], "eV")),
-            ("Affinité électronique", fmt(d[13], "eV")),
+        section(t["sec_electronic"], [
+            (t["lbl_ox"], d[10]),
+            (t["lbl_spin"], str(int(d[14])) if d[14] is not None else t["na"]),
+            (t["lbl_ie1"], fmt(d[12], "eV")),
+            (t["lbl_ea"], fmt(d[13], "eV")),
         ]),
-        section("Propriétés atomiques", [
-            ("Polarisabilité (α)", fmt(d[9], "Å³")),
-            ("Rayon de van der Waals", fmt(d[15], "Å")),
-            ("Volume molaire", fmt(d[11], "cm³/mol", 2)),
+        section(t["sec_atomic"], [
+            (t["lbl_alpha"], fmt(d[9], "Å³")),
+            (t["lbl_vdw"], fmt(d[15], "Å")),
+            (t["lbl_vol"], fmt(d[11], "cm³/mol", 2)),
         ]),
-        section("Modélisation computationnelle", [
-            ("Traitement ECP", d[6]),
-            ("Basis sets recommandés", d[7]),
-            ("Pseudopotentiel", d[8]),
-            ("Fonctionnelle DFT", d[16]),
-            ("Correction de dispersion", d[17]),
-            ("Effets relativistes", d[18]),
+        section(t["sec_compchem"], [
+            (t["lbl_ecp"], ecp_val),
+            (t["lbl_basis"], d[7]),
+            (t["lbl_pseudo"], pseudo_val),
+            (t["lbl_func"], d[16]),
+            (t["lbl_disp"], disp_val),
+            (t["lbl_relat"], relat_val),
         ]),
         html.Div(className="bse-link", children=[
             html.A(
-                "Basis Set Exchange →",
+                t["bse_link"],
                 href="https://www.basissetexchange.org/",
                 target="_blank",
                 className="bse-anchor",
             ),
         ]),
     ]
+
+
+# FR : Callback de bascule de langue : détermine quelle langue est active
+#      selon le bouton cliqué en dernier. ctx.triggered_id est disponible
+#      depuis Dash 2.4 et évite de comparer des listes de triggered_prop_ids.
+# RU : Callback переключения языка: определяет активный язык по последней
+#      нажатой кнопке. ctx.triggered_id доступен с Dash 2.4 и позволяет
+#      избежать сравнения списков triggered_prop_ids.
+@app.callback(
+    Output("lang", "data"),
+    Input("btn-fr", "n_clicks"),
+    Input("btn-ru", "n_clicks"),
+    State("lang", "data"),
+    prevent_initial_call=True,
+)
+def toggle_lang(n_fr, n_ru, current_lang):
+    triggered = ctx.triggered_id
+    if triggered == "btn-fr":
+        return "fr"
+    if triggered == "btn-ru":
+        return "ru"
+    return current_lang
+
+
+# FR : Callback de mise à jour de l'interface : traduit tous les textes
+#      statiques (titre, sous-titre, filtres, légende, pied de page) quand
+#      la langue change. Un seul callback centralise toutes les sorties pour
+#      éviter les dépendances circulaires.
+# RU : Callback обновления интерфейса: переводит все статические тексты
+#      (заголовок, подзаголовок, фильтры, легенда, подвал) при смене языка.
+#      Один callback централизует все выходные данные во избежание
+#      циклических зависимостей.
+@app.callback(
+    Output("app-title", "children"),
+    Output("app-subtitle", "children"),
+    Output("detail-card-title", "children"),
+    Output("group-filter", "options"),
+    Output("group-filter", "placeholder"),
+    Output("block-filter", "options"),
+    Output("block-filter", "placeholder"),
+    Output("ecp-filter", "options"),
+    Output("ecp-filter", "placeholder"),
+    Output("search-input", "placeholder"),
+    Output("legend-row", "children"),
+    Output("footer-data", "children"),
+    Output("footer-credit", "children"),
+    Output("btn-fr", "className"),
+    Output("btn-ru", "className"),
+    Input("lang", "data"),
+)
+def update_ui_language(lang):
+    t = LANG[lang or "fr"]
+    groups = [
+        {"label": f"{t['group_label']} {int(g)}", "value": int(g)}
+        for g in sorted(df[df["row"] <= 7]["group"].unique())
+    ]
+    legend = [
+        html.Span([
+            html.Span(className="legend-dot", style={"background": color}),
+            html.Span(t["categories"].get(cat, cat), className="legend-label"),
+        ], className="legend-item")
+        for cat, color in CATEGORY_COLORS.items()
+    ]
+    fr_cls = "lang-btn active" if lang == "fr" else "lang-btn"
+    ru_cls = "lang-btn active" if lang == "ru" else "lang-btn"
+    return (
+        t["title"],
+        t["subtitle"],
+        t["detail_title"],
+        groups, t["group_ph"],
+        t["blocks"], t["block_ph"],
+        t["ecps"], t["ecp_ph"],
+        t["search_ph"],
+        legend,
+        t["footer_data"],
+        t["footer_credit"],
+        fr_cls,
+        ru_cls,
+    )
 
 
 if __name__ == "__main__":
