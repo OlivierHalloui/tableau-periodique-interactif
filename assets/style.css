@@ -127,6 +127,15 @@ body {
 .filter-dropdown .Select-option {
     background: #1e3040 !important;
     color: #eceff1 !important;
+    font-size: 0.78rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 36px !important;
+    padding: 0 12px !important;
+    height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
 }
 
 .filter-dropdown .Select-option.is-focused {
@@ -326,4 +335,512 @@ body {
     border-color: #81d4fa;
     color: #81d4fa;
     font-weight: 700;
+}
+
+/* ─── Panneau droit avec onglets ─────────────────────────────────── */
+
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 520px;
+}
+
+.right-tabs {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Override React-tabs pour le thème sombre */
+.right-tabs .react-tabs__tab-list {
+    border-bottom: 1px solid rgba(129, 212, 250, 0.25);
+    margin: 0 0 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+}
+
+.right-tabs .react-tabs__tab-panel {
+    display: none;
+    flex: 1;
+}
+
+.right-tabs .react-tabs__tab-panel--selected {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Boutons d'onglets personnalisés */
+.panel-tab {
+    padding: 10px 20px;
+    color: #90a4ae;
+    cursor: pointer;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    font-size: 0.88rem;
+    font-family: "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+    transition: color 0.15s;
+    list-style: none;
+}
+
+.panel-tab:hover {
+    color: #cfd8dc;
+}
+
+.panel-tab--selected {
+    color: #81d4fa !important;
+    border-bottom: 2px solid #81d4fa !important;
+    font-weight: 600;
+}
+
+/* La detail-card à l'intérieur d'un onglet n'a plus besoin de min-height propre */
+.right-panel .detail-card {
+    flex: 1;
+    min-height: 0;
+    border-radius: 0 0 24px 24px;
+}
+
+/* ─── Onglet Recommandations ─────────────────────────────────────── */
+
+.reco-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(236, 239, 241, 0.1);
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
+    padding: 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.reco-controls-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.reco-output {
+    overflow-y: auto;
+    flex: 1;
+}
+
+.reco-hint {
+    color: #90a4ae;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.reco-header {
+    margin-bottom: 14px;
+}
+
+.reco-header h3 {
+    margin: 0 0 4px;
+    font-size: 1.05rem;
+}
+
+.reco-subheader {
+    color: #81d4fa;
+    font-size: 0.82rem;
+    margin: 0 0 14px;
+}
+
+.reco-summary-box {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+    padding: 10px 14px;
+}
+
+/* Markdown dans les notes — taille réduite pour s'intégrer au panneau */
+.reco-notes-text p,
+.reco-notes-text li {
+    font-size: 0.78rem;
+    color: #cfd8dc;
+    margin: 3px 0;
+    line-height: 1.5;
+}
+
+.reco-notes-text strong {
+    color: #eceff1;
+}
+
+/* ─── Badges logiciels ───────────────────────────────────────────── */
+
+.sw-badges-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.sw-badge {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 6px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    min-width: 76px;
+    transition: filter 0.15s;
+}
+
+.sw-badge:hover {
+    filter: brightness(1.15);
+}
+
+.sw-badge-name {
+    color: #fff;
+    font-size: 0.84rem;
+    font-weight: 600;
+    display: block;
+}
+
+.sw-badge-type {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.68rem;
+    display: block;
+}
+
+/* ─── Exemples de code ───────────────────────────────────────────── */
+
+.snippet-pre {
+    background: #0d1b25;
+    border: 1px solid rgba(129, 212, 250, 0.15);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-family: "Consolas", "Monaco", "Courier New", monospace;
+    font-size: 0.75rem;
+    color: #80cbc4;
+    overflow-x: auto;
+    white-space: pre;
+    margin: 6px 0 0;
+}
+
+/* ─── Liens utiles ───────────────────────────────────────────────── */
+
+.reco-link {
+    color: #4dd0e1;
+    text-decoration: none;
+    font-size: 0.78rem;
+}
+
+.reco-link:hover {
+    text-decoration: underline;
+}
+
+/* ─── Main tabs (top-level: Tableau / Tendances / Comparateur / Orbitales) ── */
+
+.main-tabs-bar {
+    margin-bottom: 0;
+}
+
+/* Override Dash tab container */
+.main-tabs-bar .tab-container {
+    border-bottom: 1px solid rgba(129, 212, 250, 0.2);
+}
+
+.main-tab {
+    padding: 11px 28px !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid transparent !important;
+    color: #90a4ae !important;
+    font-size: 0.93rem !important;
+    font-family: "Inter", "Segoe UI", Helvetica, Arial, sans-serif !important;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.main-tab:hover {
+    color: #cfd8dc !important;
+}
+
+.main-tab--selected {
+    color: #81d4fa !important;
+    border-bottom: 2px solid #81d4fa !important;
+    font-weight: 600 !important;
+    background: transparent !important;
+}
+
+/* Content area under main tabs */
+.tab-content-pad {
+    padding: 20px 0;
+}
+
+/* ─── Trends tab ─────────────────────────────────────────────────────── */
+
+.trend-controls-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+    align-items: center;
+}
+
+.trend-controls-row .filter-dropdown {
+    min-width: 220px;
+    max-width: 340px;
+}
+
+.trend-chart {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(236, 239, 241, 0.08);
+    border-radius: 20px;
+    padding: 6px;
+}
+
+/* ─── Comparator tab ─────────────────────────────────────────────────── */
+
+.comp-controls-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+    align-items: center;
+}
+
+.comp-multiselect {
+    min-width: 320px;
+    max-width: 520px;
+}
+
+/* Override multi-value tag style in Dash dcc.Dropdown */
+.comp-multiselect .Select-value {
+    background: #1a3a50 !important;
+    border-color: #37607a !important;
+    color: #81d4fa !important;
+    border-radius: 6px !important;
+}
+
+.comp-multiselect .Select-value-icon {
+    border-color: #37607a !important;
+    color: #81d4fa !important;
+}
+
+.comp-charts-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.comp-radar {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(236, 239, 241, 0.08);
+    border-radius: 20px;
+    padding: 6px;
+}
+
+.comp-table-wrap {
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid rgba(236, 239, 241, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+}
+
+.comp-th {
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: #81d4fa;
+    border-bottom: 1px solid rgba(129, 212, 250, 0.2);
+    background: rgba(26, 58, 80, 0.4);
+    white-space: nowrap;
+}
+
+.comp-td {
+    padding: 8px 14px;
+    border-bottom: 1px solid rgba(236, 239, 241, 0.06);
+    color: #cfd8dc;
+    vertical-align: middle;
+}
+
+.comp-td:first-child {
+    font-weight: 600;
+    color: #eceff1;
+}
+
+.comp-td-label {
+    font-size: 0.76rem;
+    color: #90a4ae;
+    font-weight: 400;
+}
+
+.comp-table tr:last-child .comp-td {
+    border-bottom: none;
+}
+
+.comp-table tr:hover .comp-td {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+@media (max-width: 900px) {
+    .comp-charts-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ─── Orbital viewer tab ─────────────────────────────────────────────── */
+
+.orbital-chart {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(236, 239, 241, 0.08);
+    border-radius: 20px;
+    padding: 6px;
+    min-height: 520px;
+}
+
+.orbital-info-box {
+    padding: 8px 16px;
+    border-radius: 10px;
+    background: rgba(26, 58, 80, 0.5);
+    border: 1px solid rgba(129, 212, 250, 0.18);
+    display: flex;
+    align-items: center;
+}
+
+.orbital-info-span {
+    font-size: 0.88rem;
+    color: #81d4fa;
+    font-family: "Consolas", "Monaco", monospace;
+    letter-spacing: 0.04em;
+}
+
+/* ─── Molecule assistant ─────────────────────────────────────────────── */
+
+.mol-assistant-section {
+    margin-top: 28px;
+    padding: 20px 22px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(236, 239, 241, 0.08);
+    border-radius: 20px;
+}
+
+.mol-assistant-section h3 {
+    margin: 0 0 14px;
+    font-size: 1rem;
+    color: #81d4fa;
+}
+
+.mol-controls-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.mol-input {
+    flex: 1;
+    min-width: 180px;
+    max-width: 280px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: #1b2b38;
+    border: 1.5px solid #4a6375;
+    color: #eceff1;
+    font-size: 0.93rem;
+    font-family: "Consolas", "Monaco", monospace;
+    transition: border-color 0.15s;
+}
+
+.mol-input:focus {
+    outline: none;
+    border-color: #81d4fa;
+}
+
+.mol-prop-dd {
+    flex: 1 1 180px;
+    min-width: 180px;
+}
+
+.mol-output {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.84rem;
+    color: #cfd8dc;
+    line-height: 1.6;
+}
+
+.mol-output p {
+    margin: 4px 0;
+}
+
+.mol-output strong {
+    color: #eceff1;
+}
+
+/* ─── Export section ─────────────────────────────────────────────────── */
+
+.export-section {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(236, 239, 241, 0.1);
+}
+
+.export-controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.export-controls .filter-dropdown {
+    flex: 1 1 160px;
+    min-width: 160px;
+}
+
+.export-btn {
+    padding: 8px 22px;
+    border-radius: 10px;
+    border: 1.5px solid #4a6375;
+    background: #1a3a50;
+    color: #81d4fa;
+    font-size: 0.88rem;
+    font-family: "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.15s;
+    letter-spacing: 0.04em;
+}
+
+.export-btn:hover {
+    border-color: #81d4fa;
+    background: #1e4560;
+    color: #e1f5fe;
+}
+
+.export-pre {
+    background: #0d1b25;
+    border: 1px solid rgba(129, 212, 250, 0.18);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-family: "Consolas", "Monaco", "Courier New", monospace;
+    font-size: 0.76rem;
+    color: #80cbc4;
+    overflow-x: auto;
+    white-space: pre;
+    max-height: 340px;
+    overflow-y: auto;
+}
+
+/* ─── Separator in reco panel ────────────────────────────────────────── */
+
+.reco-separator {
+    border: none;
+    border-top: 1px solid rgba(236, 239, 241, 0.1);
+    margin: 14px 0;
 }

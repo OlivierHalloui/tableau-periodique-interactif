@@ -1,0 +1,406 @@
+{
+  "1": [
+    {
+      "mass": 1,
+      "spin": "1/2",
+      "abund": 99.99,
+      "freq_ratio": 100.0,
+      "sens": 1.0,
+      "ref": "TMS (0 ppm)",
+      "basis_rec": "pcSseg-3 / aug-cc-pVTZ",
+      "notes_fr": "Noyau de référence universel",
+      "notes_ru": "Эталонное ядро"
+    },
+    {
+      "mass": 2,
+      "spin": "1",
+      "abund": 0.015,
+      "freq_ratio": 15.35,
+      "sens": 0.00965,
+      "ref": "TMS-d₄",
+      "basis_rec": "aug-cc-pVTZ",
+      "notes_fr": "Quadrupolaire, relaxation rapide",
+      "notes_ru": "Квадрупольное, быстрая релаксация"
+    }
+  ],
+  "3": [
+    {
+      "mass": 7,
+      "spin": "3/2",
+      "abund": 92.58,
+      "freq_ratio": 38.86,
+      "sens": 0.271,
+      "ref": "LiCl aq.",
+      "basis_rec": "pcSseg-3",
+      "notes_fr": "Quadrupolaire modéré",
+      "notes_ru": "Умеренный квадрупольный"
+    }
+  ],
+  "5": [
+    {
+      "mass": 11,
+      "spin": "3/2",
+      "abund": 80.42,
+      "freq_ratio": 32.08,
+      "sens": 0.165,
+      "ref": "BF₃·Et₂O",
+      "basis_rec": "pcSseg-3",
+      "notes_fr": "Quadrupolaire, largeur modérée",
+      "notes_ru": "Квадрупольный"
+    }
+  ],
+  "6": [
+    {
+      "mass": 13,
+      "spin": "1/2",
+      "abund": 1.108,
+      "freq_ratio": 25.14,
+      "sens": 0.0159,
+      "ref": "TMS (0 ppm)",
+      "basis_rec": "pcSseg-3 / IGLO-III",
+      "notes_fr": "Référence organique, couplage ¹H-¹³C",
+      "notes_ru": "Органический эталон, пара ¹H-¹³C"
+    }
+  ],
+  "7": [
+    {
+      "mass": 14,
+      "spin": "1",
+      "abund": 99.63,
+      "freq_ratio": 7.22,
+      "sens": 0.00101,
+      "ref": "MeNO₂ / NH₃",
+      "basis_rec": "pcSseg-3",
+      "notes_fr": "Quadrupolaire, raies larges",
+      "notes_ru": "Квадрупольный, широкие линии"
+    },
+    {
+      "mass": 15,
+      "spin": "1/2",
+      "abund": 0.37,
+      "freq_ratio": 10.13,
+      "sens": 3.85e-06,
+      "ref": "MeNO₂ / NH₃",
+      "basis_rec": "aug-pcSseg-3",
+      "notes_fr": "Spin-1/2, faible sensibilité",
+      "notes_ru": "Спин-1/2, низкая чувствительность"
+    }
+  ],
+  "8": [
+    {
+      "mass": 17,
+      "spin": "5/2",
+      "abund": 0.038,
+      "freq_ratio": 13.56,
+      "sens": 1.08e-05,
+      "ref": "H₂O",
+      "basis_rec": "aug-pcSseg-3",
+      "notes_fr": "Quadrupolaire, abondance très faible",
+      "notes_ru": "Квадрупольный, крайне малое содержание"
+    }
+  ],
+  "9": [
+    {
+      "mass": 19,
+      "spin": "1/2",
+      "abund": 100.0,
+      "freq_ratio": 94.08,
+      "sens": 0.833,
+      "ref": "CFCl₃",
+      "basis_rec": "pcSseg-3",
+      "notes_fr": "100 % abondance, grande plage (±300 ppm)",
+      "notes_ru": "100% содержание, диапазон ±300 ppm"
+    }
+  ],
+  "14": [
+    {
+      "mass": 29,
+      "spin": "1/2",
+      "abund": 4.7,
+      "freq_ratio": 19.87,
+      "sens": 0.00784,
+      "ref": "TMS",
+      "basis_rec": "pcSseg-3 / IGLO-III",
+      "notes_fr": "Utile en chimie des organosiliciés",
+      "notes_ru": "Важен в кремнийорганической химии"
+    }
+  ],
+  "15": [
+    {
+      "mass": 31,
+      "spin": "1/2",
+      "abund": 100.0,
+      "freq_ratio": 40.48,
+      "sens": 0.0663,
+      "ref": "H₃PO₄ 85 %",
+      "basis_rec": "pcSseg-3",
+      "notes_fr": "100 % abondance, chimie du phosphore",
+      "notes_ru": "100% содержание, химия фосфора"
+    }
+  ],
+  "17": [
+    {
+      "mass": 35,
+      "spin": "3/2",
+      "abund": 75.77,
+      "freq_ratio": 9.8,
+      "sens": 0.00472,
+      "ref": "NaCl aq.",
+      "basis_rec": "aug-pcSseg-3",
+      "notes_fr": "Quadrupolaire",
+      "notes_ru": "Квадрупольный"
+    },
+    {
+      "mass": 37,
+      "spin": "3/2",
+      "abund": 24.23,
+      "freq_ratio": 8.16,
+      "sens": 0.000635,
+      "ref": "NaCl aq.",
+      "basis_rec": "aug-pcSseg-3",
+      "notes_fr": "Quadrupolaire, moins sensible",
+      "notes_ru": "Квадрупольный"
+    }
+  ],
+  "23": [
+    {
+      "mass": 51,
+      "spin": "7/2",
+      "abund": 99.75,
+      "freq_ratio": 26.3,
+      "sens": 0.383,
+      "ref": "VOCl₃",
+      "basis_rec": "def2-TZVPP",
+      "notes_fr": "Grande plage de déplacements (2000 ppm)",
+      "notes_ru": "Широкий диапазон смещений (2000 ppm)"
+    }
+  ],
+  "25": [
+    {
+      "mass": 55,
+      "spin": "5/2",
+      "abund": 100.0,
+      "freq_ratio": 24.79,
+      "sens": 0.178,
+      "ref": "KMnO₄",
+      "basis_rec": "def2-TZVPP",
+      "notes_fr": "Quadrupolaire fort",
+      "notes_ru": "Сильный квадрупольный"
+    }
+  ],
+  "27": [
+    {
+      "mass": 59,
+      "spin": "7/2",
+      "abund": 100.0,
+      "freq_ratio": 23.73,
+      "sens": 0.277,
+      "ref": "[Co(CN)₆]³⁻",
+      "basis_rec": "def2-TZVPP",
+      "notes_fr": "Grand EFG, raies larges",
+      "notes_ru": "Большой ГЭП, широкие линии"
+    }
+  ],
+  "29": [
+    {
+      "mass": 63,
+      "spin": "3/2",
+      "abund": 69.17,
+      "freq_ratio": 26.5,
+      "sens": 0.0931,
+      "ref": "[Cu(CH₃CN)₄]⁺",
+      "basis_rec": "def2-TZVPP",
+      "notes_fr": "Quadrupolaire, DFT délicate pour Cu",
+      "notes_ru": "Квадрупольный, сложный для DFT"
+    }
+  ],
+  "34": [
+    {
+      "mass": 77,
+      "spin": "1/2",
+      "abund": 7.58,
+      "freq_ratio": 19.07,
+      "sens": 0.00525,
+      "ref": "Me₂Se",
+      "basis_rec": "def2-TZVPP",
+      "notes_fr": "Plage étendue (±3000 ppm)",
+      "notes_ru": "Широкий диапазон (±3000 ppm)"
+    }
+  ],
+  "39": [
+    {
+      "mass": 89,
+      "spin": "1/2",
+      "abund": 100.0,
+      "freq_ratio": 4.9,
+      "sens": 0.000119,
+      "ref": "YCl₃ aq.",
+      "basis_rec": "def2-TZVPP",
+      "notes_fr": "Spin-1/2, faible sensibilité",
+      "notes_ru": "Спин-1/2, низкая чувствительность"
+    }
+  ],
+  "47": [
+    {
+      "mass": 109,
+      "spin": "1/2",
+      "abund": 48.18,
+      "freq_ratio": 4.65,
+      "sens": 4.94e-05,
+      "ref": "AgNO₃ aq.",
+      "basis_rec": "def2-TZVPP",
+      "notes_fr": "Très faible sensibilité",
+      "notes_ru": "Очень низкая чувствительность"
+    }
+  ],
+  "48": [
+    {
+      "mass": 111,
+      "spin": "1/2",
+      "abund": 12.8,
+      "freq_ratio": 21.21,
+      "sens": 0.000954,
+      "ref": "Cd(ClO₄)₂",
+      "basis_rec": "def2-TZVPP",
+      "notes_fr": "Spin-1/2",
+      "notes_ru": "Спин-1/2"
+    },
+    {
+      "mass": 113,
+      "spin": "1/2",
+      "abund": 12.22,
+      "freq_ratio": 22.19,
+      "sens": 0.00109,
+      "ref": "Cd(ClO₄)₂",
+      "basis_rec": "def2-TZVPP",
+      "notes_fr": "Légèrement préféré à ¹¹¹Cd",
+      "notes_ru": "Предпочтительнее ¹¹¹Cd"
+    }
+  ],
+  "50": [
+    {
+      "mass": 117,
+      "spin": "1/2",
+      "abund": 7.68,
+      "freq_ratio": 35.63,
+      "sens": 0.00349,
+      "ref": "SnMe₄",
+      "basis_rec": "def2-TZVPP",
+      "notes_fr": "Plage ±6000 ppm, effets relativistes",
+      "notes_ru": "Диапазон ±6000 ppm, релятивистские эффекты"
+    },
+    {
+      "mass": 119,
+      "spin": "1/2",
+      "abund": 8.59,
+      "freq_ratio": 37.29,
+      "sens": 0.00451,
+      "ref": "SnMe₄",
+      "basis_rec": "def2-TZVPP",
+      "notes_fr": "Le plus sensible des isotopes Sn-1/2",
+      "notes_ru": "Наиболее чувствительный изотоп Sn"
+    }
+  ],
+  "52": [
+    {
+      "mass": 125,
+      "spin": "1/2",
+      "abund": 7.07,
+      "freq_ratio": 31.55,
+      "sens": 0.00223,
+      "ref": "Me₂Te",
+      "basis_rec": "def2-TZVPP",
+      "notes_fr": "Plage ±7000 ppm",
+      "notes_ru": "Диапазон ±7000 ppm"
+    }
+  ],
+  "53": [
+    {
+      "mass": 127,
+      "spin": "5/2",
+      "abund": 100.0,
+      "freq_ratio": 20.01,
+      "sens": 0.0934,
+      "ref": "KI aq.",
+      "basis_rec": "def2-TZVPP",
+      "notes_fr": "Quadrupolaire, utile en chimie iodée",
+      "notes_ru": "Квадрупольный, химия йода"
+    }
+  ],
+  "74": [
+    {
+      "mass": 183,
+      "spin": "1/2",
+      "abund": 14.31,
+      "freq_ratio": 4.16,
+      "sens": 7.2e-05,
+      "ref": "WO₄²⁻",
+      "basis_rec": "SARC-DKH2",
+      "notes_fr": "Faible sensibilité, grand effet relativiste",
+      "notes_ru": "Низкая чувствительность, сильный релятивистский эффект"
+    }
+  ],
+  "78": [
+    {
+      "mass": 195,
+      "spin": "1/2",
+      "abund": 33.83,
+      "freq_ratio": 21.5,
+      "sens": 0.00337,
+      "ref": "Na₂PtCl₆",
+      "basis_rec": "SARC-DKH2 / def2-TZVPP",
+      "notes_fr": "Spin-1/2, très large plage, DFT-relativiste",
+      "notes_ru": "Спин-1/2, очень широкий диапазон, релятивистская ТФТ"
+    }
+  ],
+  "80": [
+    {
+      "mass": 199,
+      "spin": "1/2",
+      "abund": 16.87,
+      "freq_ratio": 17.91,
+      "sens": 0.00567,
+      "ref": "Me₂Hg",
+      "basis_rec": "SARC-DKH2",
+      "notes_fr": "Plage ±5000 ppm, fort effet relativiste",
+      "notes_ru": "Диапазон ±5000 ppm, сильный релятивистский эффект"
+    }
+  ],
+  "81": [
+    {
+      "mass": 203,
+      "spin": "1/2",
+      "abund": 29.52,
+      "freq_ratio": 57.12,
+      "sens": 0.0554,
+      "ref": "TlNO₃ aq.",
+      "basis_rec": "SARC-DKH2",
+      "notes_fr": "Sensible, large plage",
+      "notes_ru": "Чувствительный, широкий диапазон"
+    },
+    {
+      "mass": 205,
+      "spin": "1/2",
+      "abund": 70.48,
+      "freq_ratio": 57.63,
+      "sens": 0.135,
+      "ref": "TlNO₃ aq.",
+      "basis_rec": "SARC-DKH2",
+      "notes_fr": "Plus abondant, préféré",
+      "notes_ru": "Более распространённый, предпочтительный"
+    }
+  ],
+  "82": [
+    {
+      "mass": 207,
+      "spin": "1/2",
+      "abund": 22.1,
+      "freq_ratio": 20.92,
+      "sens": 0.0201,
+      "ref": "PbMe₄",
+      "basis_rec": "SARC-DKH2",
+      "notes_fr": "Plage ±17000 ppm, fort effet relativiste",
+      "notes_ru": "Диапазон ±17000 ppm, очень сильные релятивистские эффекты"
+    }
+  ]
+}

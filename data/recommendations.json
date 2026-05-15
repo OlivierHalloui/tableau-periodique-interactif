@@ -1,0 +1,528 @@
+{
+  "methods": {
+    "hf": {
+      "label_fr": "Hartree-Fock (HF)",
+      "label_ru": "Метод Хартри-Фока (ХФ)",
+      "type": "wavefunction",
+      "needs_functional": false,
+      "needs_dispersion": false,
+      "scaling": "O(N⁴)"
+    },
+    "dft_gga": {
+      "label_fr": "DFT-GGA (PBE, BLYP, BP86)",
+      "label_ru": "ТФТ-ОПГ (PBE, BLYP, BP86)",
+      "type": "dft",
+      "needs_functional": true,
+      "needs_dispersion": true,
+      "scaling": "O(N³)"
+    },
+    "dft_hybrid": {
+      "label_fr": "DFT hybride (B3LYP, PBE0, TPSSh)",
+      "label_ru": "Гибридная ТФТ (B3LYP, PBE0, TPSSh)",
+      "type": "dft",
+      "needs_functional": true,
+      "needs_dispersion": true,
+      "scaling": "O(N⁴)"
+    },
+    "dft_meta": {
+      "label_fr": "DFT méta-GGA (TPSS, M06-L, r²SCAN)",
+      "label_ru": "Мета-ОПГ (TPSS, M06-L, r²SCAN)",
+      "type": "dft",
+      "needs_functional": true,
+      "needs_dispersion": true,
+      "scaling": "O(N³)"
+    },
+    "dft_rs": {
+      "label_fr": "DFT à séparation de portée (ωB97X-D, CAM-B3LYP)",
+      "label_ru": "ТФТ с разделением диапазона (ωB97X-D)",
+      "type": "dft",
+      "needs_functional": true,
+      "needs_dispersion": true,
+      "scaling": "O(N⁴)"
+    },
+    "mp2": {
+      "label_fr": "MP2 (Møller-Plesset 2ᵉ ordre)",
+      "label_ru": "МП2 (теория возмущений 2-го порядка)",
+      "type": "wavefunction",
+      "needs_functional": false,
+      "needs_dispersion": false,
+      "scaling": "O(N⁵)"
+    },
+    "ccsd": {
+      "label_fr": "CCSD(T) — gold standard",
+      "label_ru": "CCSD(T) — золотой стандарт",
+      "type": "wavefunction",
+      "needs_functional": false,
+      "needs_dispersion": false,
+      "scaling": "O(N⁷)"
+    },
+    "casscf": {
+      "label_fr": "CASSCF/NEVPT2 (multiconfiguratif)",
+      "label_ru": "CASSCF/NEVPT2 (мультиконфигурационный)",
+      "type": "multireference",
+      "needs_functional": false,
+      "needs_dispersion": false,
+      "scaling": "O(Nᶜ)"
+    }
+  },
+  "properties": {
+    "geometry": {
+      "label_fr": "Géométrie moléculaire",
+      "label_ru": "Молекулярная геометрия",
+      "needs_aug": false,
+      "basis_quality": "triple_zeta"
+    },
+    "energy": {
+      "label_fr": "Énergie de réaction / thermochimie",
+      "label_ru": "Энергия реакции / термохимия",
+      "needs_aug": false,
+      "basis_quality": "triple_zeta"
+    },
+    "excitation": {
+      "label_fr": "États excités / UV-Vis (TD-DFT)",
+      "label_ru": "Возбуждённые состояния (ВТ-ТФТ)",
+      "needs_aug": true,
+      "basis_quality": "aug_triple_zeta"
+    },
+    "nmr": {
+      "label_fr": "Paramètres RMN (déplacements, J-coupling)",
+      "label_ru": "Параметры ЯМР (δ, J-связь)",
+      "needs_aug": false,
+      "basis_quality": "nmr_special"
+    },
+    "magnetism": {
+      "label_fr": "Propriétés magnétiques / RPE",
+      "label_ru": "Магнитные свойства / ЭПР",
+      "needs_aug": false,
+      "basis_quality": "epr_special"
+    },
+    "dispersion": {
+      "label_fr": "Interactions non-covalentes / London",
+      "label_ru": "Нековалентные взаимодействия",
+      "needs_aug": true,
+      "basis_quality": "aug_triple_zeta"
+    },
+    "ionization": {
+      "label_fr": "Potentiel d'ionisation / affinité EA",
+      "label_ru": "Потенциал ионизации / EA",
+      "needs_aug": true,
+      "basis_quality": "aug_triple_zeta"
+    },
+    "spin_density": {
+      "label_fr": "Densité de spin / populations",
+      "label_ru": "Спиновая плотность / населённости",
+      "needs_aug": false,
+      "basis_quality": "triple_zeta"
+    }
+  },
+  "basis_categories": {
+    "H_He": {
+      "z_min": 1,
+      "z_max": 2,
+      "triple_zeta": "cc-pVTZ",
+      "aug": "aug-cc-pVTZ",
+      "qz": "cc-pVQZ",
+      "nmr": "pcSseg-3",
+      "epr": "EPR-II",
+      "ecp": null,
+      "aux": "def2/J"
+    },
+    "Li_Ne": {
+      "z_min": 3,
+      "z_max": 10,
+      "triple_zeta": "def2-TZVP",
+      "aug": "aug-cc-pVTZ",
+      "qz": "def2-QZVP",
+      "nmr": "pcSseg-3",
+      "epr": "EPR-II",
+      "ecp": null,
+      "aux": "def2/J"
+    },
+    "Na_Ar": {
+      "z_min": 11,
+      "z_max": 18,
+      "triple_zeta": "def2-TZVP",
+      "aug": "aug-cc-pVTZ",
+      "qz": "def2-QZVP",
+      "nmr": "pcSseg-3",
+      "epr": "EPR-III",
+      "ecp": null,
+      "aux": "def2/J"
+    },
+    "K_Kr": {
+      "z_min": 19,
+      "z_max": 36,
+      "triple_zeta": "def2-TZVP",
+      "aug": "def2-TZVPD",
+      "qz": "def2-QZVPP",
+      "nmr": "IGLO-III",
+      "epr": "EPR-III",
+      "ecp": "ECP-10 (Stuttgart/MDF)",
+      "aux": "def2/J"
+    },
+    "Rb_Xe": {
+      "z_min": 37,
+      "z_max": 54,
+      "triple_zeta": "def2-TZVPP",
+      "aug": "def2-TZVPPD",
+      "qz": "def2-QZVPP",
+      "nmr": "IGLO-III",
+      "epr": "def2-TZVPP",
+      "ecp": "ECP-28 (Stuttgart/MDF)",
+      "aux": "def2/J"
+    },
+    "Cs_La_Hf_Rn": {
+      "z_min": 55,
+      "z_max": 86,
+      "triple_zeta": "def2-TZVPP",
+      "aug": "def2-TZVPPD",
+      "qz": "SARC-DKH2",
+      "nmr": "IGLO-III",
+      "epr": "SARC-DKH2",
+      "ecp": "ECP-60 (Stuttgart/MDF)",
+      "aux": "SARC/J"
+    },
+    "Lanthanides": {
+      "z_min": 58,
+      "z_max": 71,
+      "triple_zeta": "SARC-DKH2",
+      "aug": "SARC-DKH2",
+      "qz": "ANO-RCC-VTZP",
+      "nmr": "SARC-DKH2",
+      "epr": "SARC-DKH2",
+      "ecp": "ECP-28/46 (Stuttgart)",
+      "aux": "SARC/J"
+    },
+    "Fr_Ac": {
+      "z_min": 87,
+      "z_max": 89,
+      "triple_zeta": "SARC2-QZV-DKH2",
+      "aug": "SARC2-QZV-DKH2",
+      "qz": "x2c-TZVPPall",
+      "nmr": "SARC2-QZV-DKH2",
+      "epr": "SARC2-QZV-DKH2",
+      "ecp": "ECP-78/92 (Stuttgart)",
+      "aux": "SARC/J"
+    },
+    "Actinides": {
+      "z_min": 90,
+      "z_max": 103,
+      "triple_zeta": "SARC-DKH2",
+      "aug": "SARC-DKH2",
+      "qz": "ANO-RCC-VTZP",
+      "nmr": "SARC-DKH2",
+      "epr": "SARC-DKH2",
+      "ecp": "ECP-78 (Stuttgart/MDF)",
+      "aux": "SARC/J"
+    },
+    "SHE": {
+      "z_min": 104,
+      "z_max": 118,
+      "triple_zeta": "SARC2-QZV-DKH2",
+      "aug": "SARC2-QZV-DKH2",
+      "qz": "x2c-TZVPPall",
+      "nmr": "SARC2-QZV-DKH2",
+      "epr": "SARC2-QZV-DKH2",
+      "ecp": "ECP-92 (Stuttgart/MDF)",
+      "aux": "SARC/J"
+    }
+  },
+  "functional_rules": [
+    {
+      "block": null,
+      "z_min": 1,
+      "z_max": 2,
+      "methods": [
+        "ccsd",
+        "mp2"
+      ],
+      "prop": null,
+      "functional": "CCSD(T) / MP2",
+      "dispersion": null
+    },
+    {
+      "block": null,
+      "z_min": 1,
+      "z_max": 2,
+      "methods": [
+        "dft_hybrid",
+        "dft_gga",
+        "dft_meta"
+      ],
+      "prop": null,
+      "functional": "B3LYP-D3BJ",
+      "dispersion": "D3BJ"
+    },
+    {
+      "block": "s",
+      "z_min": 3,
+      "z_max": 18,
+      "methods": [
+        "dft_hybrid"
+      ],
+      "prop": "geometry",
+      "functional": "B3LYP-D3BJ",
+      "dispersion": "D3BJ"
+    },
+    {
+      "block": "s",
+      "z_min": 3,
+      "z_max": 18,
+      "methods": [
+        "dft_hybrid"
+      ],
+      "prop": "energy",
+      "functional": "PBE0-D3BJ",
+      "dispersion": "D3BJ"
+    },
+    {
+      "block": "p",
+      "z_min": 5,
+      "z_max": 18,
+      "methods": [
+        "dft_hybrid"
+      ],
+      "prop": "geometry",
+      "functional": "B3LYP-D3BJ",
+      "dispersion": "D3BJ"
+    },
+    {
+      "block": "p",
+      "z_min": 5,
+      "z_max": 18,
+      "methods": [
+        "dft_hybrid"
+      ],
+      "prop": "energy",
+      "functional": "PBE0-D3BJ",
+      "dispersion": "D3BJ"
+    },
+    {
+      "block": "p",
+      "z_min": 5,
+      "z_max": 18,
+      "methods": [
+        "dft_hybrid",
+        "dft_rs"
+      ],
+      "prop": "excitation",
+      "functional": "ωB97X-D / CAM-B3LYP",
+      "dispersion": "D3BJ"
+    },
+    {
+      "block": "p",
+      "z_min": 5,
+      "z_max": 18,
+      "methods": [
+        "dft_hybrid"
+      ],
+      "prop": "nmr",
+      "functional": "B3LYP / PBE0",
+      "dispersion": null
+    },
+    {
+      "block": "p",
+      "z_min": 5,
+      "z_max": 18,
+      "methods": [
+        "dft_hybrid",
+        "dft_rs"
+      ],
+      "prop": "ionization",
+      "functional": "ωB97X-D / M06-2X",
+      "dispersion": "D3BJ"
+    },
+    {
+      "block": "p",
+      "z_min": 5,
+      "z_max": 18,
+      "methods": [
+        "dft_hybrid",
+        "dft_gga"
+      ],
+      "prop": "dispersion",
+      "functional": "B3LYP-D3BJ / BLYP-D3BJ",
+      "dispersion": "D3BJ (mandatory)"
+    },
+    {
+      "block": "s",
+      "z_min": 19,
+      "z_max": 86,
+      "methods": [
+        "dft_hybrid",
+        "dft_meta"
+      ],
+      "prop": null,
+      "functional": "PBE0-D3BJ",
+      "dispersion": "D3BJ"
+    },
+    {
+      "block": "p",
+      "z_min": 19,
+      "z_max": 86,
+      "methods": [
+        "dft_hybrid",
+        "dft_meta"
+      ],
+      "prop": null,
+      "functional": "PBE0-D3BJ",
+      "dispersion": "D3BJ"
+    },
+    {
+      "block": "d",
+      "z_min": 21,
+      "z_max": 30,
+      "methods": [
+        "dft_meta"
+      ],
+      "prop": "geometry",
+      "functional": "TPSS-D3BJ",
+      "dispersion": "D3BJ"
+    },
+    {
+      "block": "d",
+      "z_min": 21,
+      "z_max": 30,
+      "methods": [
+        "dft_hybrid"
+      ],
+      "prop": "geometry",
+      "functional": "TPSSh-D3BJ",
+      "dispersion": "D3BJ"
+    },
+    {
+      "block": "d",
+      "z_min": 21,
+      "z_max": 30,
+      "methods": [
+        "dft_gga"
+      ],
+      "prop": null,
+      "functional": "PBE-D3BJ",
+      "dispersion": "D3BJ"
+    },
+    {
+      "block": "d",
+      "z_min": 21,
+      "z_max": 30,
+      "methods": [
+        "dft_hybrid",
+        "dft_meta"
+      ],
+      "prop": "magnetism",
+      "functional": "TPSSh / B3LYP",
+      "dispersion": null
+    },
+    {
+      "block": "d",
+      "z_min": 21,
+      "z_max": 30,
+      "methods": [
+        "dft_hybrid",
+        "dft_meta"
+      ],
+      "prop": "spin_density",
+      "functional": "TPSSh / M06-L",
+      "dispersion": null
+    },
+    {
+      "block": "d",
+      "z_min": 39,
+      "z_max": 80,
+      "methods": [
+        "dft_hybrid",
+        "dft_meta"
+      ],
+      "prop": null,
+      "functional": "PBE0-D3BJ / TPSS-D3BJ",
+      "dispersion": "D3BJ"
+    },
+    {
+      "block": "f",
+      "z_min": 57,
+      "z_max": 71,
+      "methods": [
+        "casscf"
+      ],
+      "prop": null,
+      "functional": "CASSCF/NEVPT2",
+      "dispersion": null
+    },
+    {
+      "block": "f",
+      "z_min": 57,
+      "z_max": 71,
+      "methods": [
+        "dft_gga",
+        "dft_hybrid",
+        "dft_meta"
+      ],
+      "prop": null,
+      "functional": "TPSS-D3BJ / PBE0-D3BJ",
+      "dispersion": "D3BJ"
+    },
+    {
+      "block": "f",
+      "z_min": 57,
+      "z_max": 71,
+      "methods": [
+        "dft_hybrid",
+        "dft_meta"
+      ],
+      "prop": "magnetism",
+      "functional": "CASSCF/NEVPT2 (préférable)",
+      "dispersion": null
+    },
+    {
+      "block": "f",
+      "z_min": 89,
+      "z_max": 103,
+      "methods": [
+        "casscf"
+      ],
+      "prop": null,
+      "functional": "CASSCF/NEVPT2",
+      "dispersion": null
+    },
+    {
+      "block": "f",
+      "z_min": 89,
+      "z_max": 103,
+      "methods": [
+        "dft_gga",
+        "dft_hybrid",
+        "dft_meta"
+      ],
+      "prop": null,
+      "functional": "PBE0-D3BJ / PBE-D3BJ",
+      "dispersion": "D3BJ"
+    }
+  ],
+  "benchmark_links": {
+    "GMTKN55": {
+      "url": "https://www.chemie.uni-bonn.de/pctc/mulliken-center/software/GMTKN/GMTKN55",
+      "desc_fr": "Base de référence des 55 sous-ensembles GMTKN55 (énergie, géométrie)",
+      "desc_ru": "База данных GMTKN55 (55 наборов, энергия, геометрия)"
+    },
+    "BSE": {
+      "url": "https://www.basissetexchange.org",
+      "desc_fr": "Basis Set Exchange — toutes les bases et ECP",
+      "desc_ru": "Basis Set Exchange — все базисные наборы и ЭКП"
+    },
+    "CCCBDB": {
+      "url": "https://cccbdb.nist.gov",
+      "desc_fr": "Base NIST de référence (géométries, fréquences calculées)",
+      "desc_ru": "База данных NIST (геометрии, частоты)"
+    },
+    "Stuttgart_PP": {
+      "url": "https://www.tc.uni-koeln.de/PP/clickpse.en.html",
+      "desc_fr": "Pseudopotentiels Stuttgart/MDF",
+      "desc_ru": "Псевдопотенциалы Штутгарта/MDF"
+    },
+    "ORCA_forum": {
+      "url": "https://orcaforum.kofo.mpg.de",
+      "desc_fr": "Forum ORCA — exemples d'input",
+      "desc_ru": "Форум ORCA — примеры входных файлов"
+    }
+  }
+}

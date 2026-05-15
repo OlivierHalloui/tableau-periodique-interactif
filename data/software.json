@@ -1,0 +1,235 @@
+{
+  "orca": {
+    "name": "ORCA",
+    "version": "≥ 5.0",
+    "free_academic": true,
+    "url": "https://www.faccts.de/orca/",
+    "label_fr": "ORCA (gratuit académique)",
+    "label_ru": "ORCA (бесплатно для учёных)",
+    "badge_color": "#3a86ff",
+    "methods": [
+      "hf",
+      "dft_gga",
+      "dft_hybrid",
+      "dft_meta",
+      "dft_rs",
+      "mp2",
+      "ccsd",
+      "casscf"
+    ],
+    "relativistic": [
+      "DKH2",
+      "ZORA",
+      "X2C",
+      "SOMF"
+    ],
+    "basis_families": [
+      "def2",
+      "cc",
+      "SARC",
+      "SARC2",
+      "ANO",
+      "pcSseg",
+      "EPR",
+      "IGLO"
+    ],
+    "features": [
+      "NMR (GIAO)",
+      "EPR/ZFS",
+      "TD-DFT",
+      "CASSCF/NEVPT2",
+      "DLPNO-CC",
+      "RIJK/RIJCOSX",
+      "frequencies",
+      "geometry",
+      "solvation (CPCM/SMD)"
+    ],
+    "keyword_examples": {
+      "dft_hybrid+geometry": "! B3LYP def2-TZVP D3BJ OPT\n%pal nprocs 8 end",
+      "ccsd+energy": "! CCSD(T) cc-pVTZ TightSCF\n%pal nprocs 8 end",
+      "dft_hybrid+nmr": "! B3LYP pcSseg-3 NMR\n%eprnmr GIAO_2el GIAO_2el_same end",
+      "dft_meta+d_block": "! TPSS def2-TZVP D3BJ OPT\n%pal nprocs 8 end",
+      "casscf+lanthanide": "! CASSCF ZORA SARC-DKH2 AutoAux\n%casscf nel 7 norb 7 end"
+    },
+    "z_limit": 118
+  },
+  "gaussian": {
+    "name": "Gaussian 16/09",
+    "version": "G16",
+    "free_academic": false,
+    "url": "https://gaussian.com",
+    "label_fr": "Gaussian 16 (licence commerciale)",
+    "label_ru": "Gaussian 16 (коммерческая лицензия)",
+    "badge_color": "#06d6a0",
+    "methods": [
+      "hf",
+      "dft_gga",
+      "dft_hybrid",
+      "dft_meta",
+      "dft_rs",
+      "mp2",
+      "ccsd",
+      "casscf"
+    ],
+    "relativistic": [
+      "DKH2",
+      "IORA"
+    ],
+    "basis_families": [
+      "def2",
+      "cc",
+      "6-31G",
+      "6-311G",
+      "LANL2DZ",
+      "SDD",
+      "CEP"
+    ],
+    "features": [
+      "NMR (GIAO)",
+      "TD-DFT",
+      "CASSCF",
+      "CASPT2",
+      "GD3 dispersion",
+      "IRC",
+      "solvation (PCM/SMD)",
+      "frequencies"
+    ],
+    "keyword_examples": {
+      "dft_hybrid+geometry": "# B3LYP/def2-TZVP EmpiricalDispersion=GD3BJ Opt",
+      "ccsd+energy": "# CCSD(T)/cc-pVTZ",
+      "dft_hybrid+nmr": "# B3LYP/pcSseg-3 NMR=GIAO",
+      "heavy_ecp": "# B3LYP/SDD EmpiricalDispersion=GD3BJ Opt (Z>18 automatic ECP)"
+    },
+    "z_limit": 103
+  },
+  "psi4": {
+    "name": "Psi4",
+    "version": "≥ 1.8",
+    "free_academic": true,
+    "url": "https://psicode.org",
+    "label_fr": "Psi4 (open-source)",
+    "label_ru": "Psi4 (открытый исходный код)",
+    "badge_color": "#ffb703",
+    "methods": [
+      "hf",
+      "dft_gga",
+      "dft_hybrid",
+      "dft_meta",
+      "dft_rs",
+      "mp2",
+      "ccsd"
+    ],
+    "relativistic": [
+      "X2C"
+    ],
+    "basis_families": [
+      "def2",
+      "cc",
+      "aug-cc",
+      "pcseg",
+      "pcSseg"
+    ],
+    "features": [
+      "EFP",
+      "SAPT",
+      "DFMP2",
+      "density fitting",
+      "NBO",
+      "solvation (PCM)",
+      "TD-DFT",
+      "frequencies"
+    ],
+    "keyword_examples": {
+      "dft_hybrid+geometry": "optimize('b3lyp-d3bj/def2-tzvp')",
+      "ccsd+energy": "energy('ccsd(t)/cc-pvtz')",
+      "mp2+energy": "energy('mp2/def2-tzvp')",
+      "sapt+dispersion": "energy('sapt2/aug-cc-pvdz')"
+    },
+    "z_limit": 86
+  },
+  "pyscf": {
+    "name": "PySCF",
+    "version": "≥ 2.4",
+    "free_academic": true,
+    "url": "https://pyscf.org",
+    "label_fr": "PySCF (Python, open-source)",
+    "label_ru": "PySCF (Python, открытый код)",
+    "badge_color": "#8338ec",
+    "methods": [
+      "hf",
+      "dft_gga",
+      "dft_hybrid",
+      "dft_meta",
+      "mp2",
+      "ccsd",
+      "casscf"
+    ],
+    "relativistic": [
+      "X2C",
+      "4c-DHF",
+      "SOMF"
+    ],
+    "basis_families": [
+      "def2",
+      "cc",
+      "aug-cc",
+      "dyall",
+      "ano"
+    ],
+    "features": [
+      "X2C relativistics",
+      "CCSD(T)",
+      "CASSCF/CASPT2",
+      "periodic DFT (GPU)",
+      "DMRG",
+      "FCIQMC",
+      "NMR",
+      "ECP"
+    ],
+    "keyword_examples": {
+      "dft_hybrid+geometry": "from pyscf import gto, dft\nmol = gto.M(atom='...', basis='def2-TZVP')\nmf = dft.RKS(mol)\nmf.xc = 'B3LYP'\nmf.disp = 'd3bj'",
+      "ccsd+energy": "from pyscf import cc\nmycc = cc.CCSD(mf).run()",
+      "x2c+heavy": "from pyscf.x2c import x2c_helper\nmol.basis = 'x2c-TZVPPall'"
+    },
+    "z_limit": 118
+  },
+  "cp2k": {
+    "name": "CP2K",
+    "version": "≥ 9.0",
+    "free_academic": true,
+    "url": "https://www.cp2k.org",
+    "label_fr": "CP2K (périodique, Gaussiennes+ondes planes)",
+    "label_ru": "CP2K (периодический, ГТО+плоские волны)",
+    "badge_color": "#ef476f",
+    "methods": [
+      "dft_gga",
+      "dft_hybrid",
+      "dft_meta"
+    ],
+    "relativistic": [
+      "ZORA"
+    ],
+    "basis_families": [
+      "GTH",
+      "DZVP-MOLOPT",
+      "TZV2P-MOLOPT",
+      "def2",
+      "cc-DZVP"
+    ],
+    "features": [
+      "GPW (Gaussian/Plane Wave)",
+      "GAPW",
+      "Car-Parrinello MD",
+      "Born-Oppenheimer MD",
+      "linear scaling DFT",
+      "NEB",
+      "Raman/IR",
+      "adsorption",
+      "surfaces"
+    ],
+    "keyword_examples": {
+      "dft_gga+periodic": "&DFT\n  BASIS_SET_FILE_NAME BASIS_MOLOPT\n  POTENTIAL_FILE_NAME POTENTIAL\n  &XC\n    &XC_FUNCTIONAL PBE\n    &END\n    &VDW_POTENTIAL D3 GRIMME END\n  &END\n&END"
+    },
+    "z_limit": 86
+  }
+}

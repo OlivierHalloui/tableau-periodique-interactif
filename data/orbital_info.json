@@ -1,0 +1,946 @@
+{
+  "1": {
+    "homo_type": "s",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 13.6,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "2": {
+    "homo_type": "s",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 24.6,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "3": {
+    "homo_type": "s",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 54.7,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "4": {
+    "homo_type": "s",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 111.5,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "5": {
+    "homo_type": "p",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 188,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "6": {
+    "homo_type": "p",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 284,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "7": {
+    "homo_type": "p",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 397,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "8": {
+    "homo_type": "p",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 532,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "9": {
+    "homo_type": "p",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 686,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "10": {
+    "homo_type": "p",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 867,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "11": {
+    "homo_type": "s",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 1072,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "12": {
+    "homo_type": "s",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 1305,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "13": {
+    "homo_type": "p",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 1560,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "14": {
+    "homo_type": "p",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 1839,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "15": {
+    "homo_type": "p",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 2149,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "16": {
+    "homo_type": "p",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 2472,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "17": {
+    "homo_type": "p",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 2823,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "18": {
+    "homo_type": "p",
+    "relativistic_importance": "négligeable",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 3206,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "19": {
+    "homo_type": "s",
+    "relativistic_importance": "faible",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 3608,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "20": {
+    "homo_type": "s",
+    "relativistic_importance": "faible",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 4039,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "21": {
+    "homo_type": "d",
+    "relativistic_importance": "faible",
+    "dft_challenge": "délicate — dégénérescence d, états de spin proches",
+    "core_1s_eV": 4493,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "22": {
+    "homo_type": "d",
+    "relativistic_importance": "faible",
+    "dft_challenge": "délicate — dégénérescence d, états de spin proches",
+    "core_1s_eV": 4966,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "23": {
+    "homo_type": "d",
+    "relativistic_importance": "faible",
+    "dft_challenge": "délicate — dégénérescence d, états de spin proches",
+    "core_1s_eV": 5465,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "24": {
+    "homo_type": "d",
+    "relativistic_importance": "faible",
+    "dft_challenge": "délicate — dégénérescence d, états de spin proches",
+    "core_1s_eV": 5989,
+    "spin_mult": 7,
+    "is_open_shell": true
+  },
+  "25": {
+    "homo_type": "d",
+    "relativistic_importance": "faible",
+    "dft_challenge": "délicate — dégénérescence d, états de spin proches",
+    "core_1s_eV": 6539,
+    "spin_mult": 6,
+    "is_open_shell": true
+  },
+  "26": {
+    "homo_type": "d",
+    "relativistic_importance": "faible",
+    "dft_challenge": "délicate — dégénérescence d, états de spin proches",
+    "core_1s_eV": 7114,
+    "spin_mult": 5,
+    "is_open_shell": true
+  },
+  "27": {
+    "homo_type": "d",
+    "relativistic_importance": "faible",
+    "dft_challenge": "délicate — dégénérescence d, états de spin proches",
+    "core_1s_eV": 7709,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "28": {
+    "homo_type": "d",
+    "relativistic_importance": "faible",
+    "dft_challenge": "délicate — dégénérescence d, états de spin proches",
+    "core_1s_eV": 8333,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "29": {
+    "homo_type": "d",
+    "relativistic_importance": "faible",
+    "dft_challenge": "délicate — dégénérescence d, états de spin proches",
+    "core_1s_eV": 8979,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "30": {
+    "homo_type": "d",
+    "relativistic_importance": "faible",
+    "dft_challenge": "délicate — dégénérescence d, états de spin proches",
+    "core_1s_eV": 9659,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "31": {
+    "homo_type": "p",
+    "relativistic_importance": "faible",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 10367,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "32": {
+    "homo_type": "p",
+    "relativistic_importance": "faible",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 11104,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "33": {
+    "homo_type": "p",
+    "relativistic_importance": "faible",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 11867,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "34": {
+    "homo_type": "p",
+    "relativistic_importance": "faible",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 12658,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "35": {
+    "homo_type": "p",
+    "relativistic_importance": "faible",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 13474,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "36": {
+    "homo_type": "p",
+    "relativistic_importance": "faible",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": 14326,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "37": {
+    "homo_type": "s",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "38": {
+    "homo_type": "s",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": null,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "39": {
+    "homo_type": "d",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "40": {
+    "homo_type": "d",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "41": {
+    "homo_type": "d",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 6,
+    "is_open_shell": true
+  },
+  "42": {
+    "homo_type": "d",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 7,
+    "is_open_shell": true
+  },
+  "43": {
+    "homo_type": "d",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 6,
+    "is_open_shell": true
+  },
+  "44": {
+    "homo_type": "d",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 5,
+    "is_open_shell": true
+  },
+  "45": {
+    "homo_type": "d",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "46": {
+    "homo_type": "d",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "47": {
+    "homo_type": "d",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "48": {
+    "homo_type": "d",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "49": {
+    "homo_type": "p",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "50": {
+    "homo_type": "p",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": null,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "51": {
+    "homo_type": "p",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": null,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "52": {
+    "homo_type": "p",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": null,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "53": {
+    "homo_type": "p",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "54": {
+    "homo_type": "p",
+    "relativistic_importance": "modérée (scalaire)",
+    "dft_challenge": "standard — DFT hybride recommandé",
+    "core_1s_eV": null,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "55": {
+    "homo_type": "s",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — baser sur relativiste",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "56": {
+    "homo_type": "s",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — baser sur relativiste",
+    "core_1s_eV": null,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "57": {
+    "homo_type": "f",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "58": {
+    "homo_type": "f",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "59": {
+    "homo_type": "f",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "60": {
+    "homo_type": "f",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 5,
+    "is_open_shell": true
+  },
+  "61": {
+    "homo_type": "f",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 6,
+    "is_open_shell": true
+  },
+  "62": {
+    "homo_type": "f",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 7,
+    "is_open_shell": true
+  },
+  "63": {
+    "homo_type": "f",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 8,
+    "is_open_shell": true
+  },
+  "64": {
+    "homo_type": "f",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 9,
+    "is_open_shell": true
+  },
+  "65": {
+    "homo_type": "f",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 6,
+    "is_open_shell": true
+  },
+  "66": {
+    "homo_type": "f",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 5,
+    "is_open_shell": true
+  },
+  "67": {
+    "homo_type": "f",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "68": {
+    "homo_type": "f",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "69": {
+    "homo_type": "f",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "70": {
+    "homo_type": "f",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "71": {
+    "homo_type": "f",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "72": {
+    "homo_type": "d",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "73": {
+    "homo_type": "d",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "74": {
+    "homo_type": "d",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 5,
+    "is_open_shell": true
+  },
+  "75": {
+    "homo_type": "d",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 6,
+    "is_open_shell": true
+  },
+  "76": {
+    "homo_type": "d",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 5,
+    "is_open_shell": true
+  },
+  "77": {
+    "homo_type": "d",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "78": {
+    "homo_type": "d",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "79": {
+    "homo_type": "d",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "80": {
+    "homo_type": "d",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "81": {
+    "homo_type": "p",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — baser sur relativiste",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "82": {
+    "homo_type": "p",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — baser sur relativiste",
+    "core_1s_eV": null,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "83": {
+    "homo_type": "p",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — baser sur relativiste",
+    "core_1s_eV": null,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "84": {
+    "homo_type": "p",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — baser sur relativiste",
+    "core_1s_eV": null,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "85": {
+    "homo_type": "p",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — baser sur relativiste",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "86": {
+    "homo_type": "p",
+    "relativistic_importance": "forte (scalaire + SO partiel)",
+    "dft_challenge": "modérée — baser sur relativiste",
+    "core_1s_eV": null,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "87": {
+    "homo_type": "s",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — baser sur relativiste",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "88": {
+    "homo_type": "s",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — baser sur relativiste",
+    "core_1s_eV": null,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "89": {
+    "homo_type": "f",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "90": {
+    "homo_type": "f",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "91": {
+    "homo_type": "f",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "92": {
+    "homo_type": "f",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 5,
+    "is_open_shell": true
+  },
+  "93": {
+    "homo_type": "f",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 6,
+    "is_open_shell": true
+  },
+  "94": {
+    "homo_type": "f",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 7,
+    "is_open_shell": true
+  },
+  "95": {
+    "homo_type": "f",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 8,
+    "is_open_shell": true
+  },
+  "96": {
+    "homo_type": "f",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 9,
+    "is_open_shell": true
+  },
+  "97": {
+    "homo_type": "f",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 6,
+    "is_open_shell": true
+  },
+  "98": {
+    "homo_type": "f",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 5,
+    "is_open_shell": true
+  },
+  "99": {
+    "homo_type": "f",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "100": {
+    "homo_type": "f",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "101": {
+    "homo_type": "f",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "102": {
+    "homo_type": "f",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "103": {
+    "homo_type": "f",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "très difficile — multireférence souvent indispensable",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "104": {
+    "homo_type": "d",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "105": {
+    "homo_type": "d",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "106": {
+    "homo_type": "d",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 5,
+    "is_open_shell": true
+  },
+  "107": {
+    "homo_type": "d",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 6,
+    "is_open_shell": true
+  },
+  "108": {
+    "homo_type": "d",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 5,
+    "is_open_shell": true
+  },
+  "109": {
+    "homo_type": "d",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "110": {
+    "homo_type": "d",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "111": {
+    "homo_type": "d",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "112": {
+    "homo_type": "d",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — bon accord TPSSh/PBE0 pour les géométries",
+    "core_1s_eV": null,
+    "spin_mult": 1,
+    "is_open_shell": false
+  },
+  "113": {
+    "homo_type": "p",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — baser sur relativiste",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "114": {
+    "homo_type": "p",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — baser sur relativiste",
+    "core_1s_eV": null,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "115": {
+    "homo_type": "p",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — baser sur relativiste",
+    "core_1s_eV": null,
+    "spin_mult": 4,
+    "is_open_shell": true
+  },
+  "116": {
+    "homo_type": "p",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — baser sur relativiste",
+    "core_1s_eV": null,
+    "spin_mult": 3,
+    "is_open_shell": true
+  },
+  "117": {
+    "homo_type": "p",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — baser sur relativiste",
+    "core_1s_eV": null,
+    "spin_mult": 2,
+    "is_open_shell": true
+  },
+  "118": {
+    "homo_type": "p",
+    "relativistic_importance": "très forte (SO requis)",
+    "dft_challenge": "modérée — baser sur relativiste",
+    "core_1s_eV": null,
+    "spin_mult": 1,
+    "is_open_shell": false
+  }
+}
