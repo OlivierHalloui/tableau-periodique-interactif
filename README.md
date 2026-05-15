@@ -159,8 +159,6 @@ pip install -r requirements.txt
 **FR :** Prérequis : Python 3.10 ou supérieur.
 
 ```bash
-git clone https://github.com/OlivierHalloui/tableau-periodique-interactif.git
-cd tableau-periodique-interactif
 python -m venv .venv
 source .venv/bin/activate          # Linux / macOS
 # .venv\Scripts\activate           # Windows
