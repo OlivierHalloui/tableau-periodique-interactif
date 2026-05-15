@@ -172,9 +172,6 @@ Mendeliev/
 **RU :** Требования: Python 3.10 или выше.
 
 ```bash
-# Клонировать репозиторий
-git clone https://github.com/OlivierHalloui/tableau-periodique-interactif.git
-cd tableau-periodique-interactif
 
 # Создать виртуальное окружение
 python -m venv .venv
