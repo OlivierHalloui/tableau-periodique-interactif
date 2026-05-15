@@ -1,0 +1,177 @@
+"""
+translations.py — Dictionnaire de traductions FR / RU.
+Словарь переводов FR / RU.
+"""
+from __future__ import annotations
+
+LANG = {
+    "fr": {
+        "title": "Tableau périodique interactif",
+        "subtitle": "Explorez les 118 éléments chimiques avec leurs propriétés scientifiques et une interface responsive en français.",
+        "detail_title": "Détails de l'élément",
+        "click_hint": "Cliquez sur une case du tableau pour afficher les propriétés de l'élément.",
+        "group_ph": "Filtrer par groupe",
+        "group_label": "Groupe",
+        "block_ph": "Filtrer par bloc",
+        "ecp_ph": "Filtrer par traitement ECP",
+        "search_ph": "Rechercher par nom ou symbole",
+        "blocks": [
+            {"label": "Bloc s  (alcalins, alcalino-terreux, H, He)", "value": "s"},
+            {"label": "Bloc p  (non-métaux, halogènes, gaz nobles…)", "value": "p"},
+            {"label": "Bloc d  (métaux de transition)", "value": "d"},
+            {"label": "Bloc f  (lanthanides & actinides)", "value": "f"},
+        ],
+        "ecps": [
+            {"label": "Tous-électrons (Z ≤ 18)", "value": "Tous-électrons"},
+            {"label": "ECP optionnel (Z 19–36)", "value": "ECP optionnel"},
+            {"label": "ECP recommandé (Z 37–54)", "value": "ECP recommandé"},
+            {"label": "ECP requis (Z 55–86)", "value": "ECP requis"},
+            {"label": "ECP / relativiste (Z ≥ 87)", "value": "ECP/relativiste"},
+        ],
+        "categories": {
+            "métal alcalin": "Métal alcalin",
+            "métal alcalino-terreux": "Métal alcalino-terreux",
+            "lanthanide": "Lanthanide",
+            "actinide": "Actinide",
+            "métal de transition": "Métal de transition",
+            "post-transition metal": "Métal post-transition",
+            "métalloïde": "Métalloïde",
+            "non-metal": "Non-métal",
+            "halogène": "Halogène",
+            "gaz noble": "Gaz noble",
+            "métal": "Métal",
+        },
+        "ecp_values": {
+            "Tous-électrons": "Tous-électrons",
+            "ECP optionnel": "ECP optionnel",
+            "ECP recommandé": "ECP recommandé",
+            "ECP requis": "ECP requis",
+            "ECP/relativiste": "ECP/relativiste",
+        },
+        "relat_values": {
+            "Négligeable": "Négligeable",
+            "Faible (optionnel)": "Faible (optionnel)",
+            "Scalaire (DKH2 / ZORA)": "Scalaire (DKH2 / ZORA)",
+            "Scalaire + spin-orbite partiel": "Scalaire + spin-orbite partiel",
+            "Spin-orbite requis (X2C / 4c-DHF)": "Spin-orbite requis (X2C / 4c-DHF)",
+        },
+        "disp_values": {"D3BJ (Grimme)": "D3BJ (Grimme)", "N/A": "N/A"},
+        "pseudo_none": "Aucun",
+        "sec_electronic": "Structure électronique",
+        "sec_atomic": "Propriétés atomiques",
+        "sec_compchem": "Modélisation computationnelle",
+        "lbl_ox": "États d'oxydation",
+        "lbl_spin": "Multiplicité de spin (2S+1)",
+        "lbl_ie1": "1ʳᵉ énergie d'ionisation",
+        "lbl_ea": "Affinité électronique",
+        "lbl_alpha": "Polarisabilité (α)",
+        "lbl_vdw": "Rayon de van der Waals",
+        "lbl_vol": "Volume molaire",
+        "lbl_ecp": "Traitement ECP",
+        "lbl_basis": "Basis sets recommandés",
+        "lbl_pseudo": "Pseudopotentiel",
+        "lbl_func": "Fonctionnelle DFT",
+        "lbl_disp": "Correction de dispersion",
+        "lbl_relat": "Effets relativistes",
+        "lbl_group": "Groupe",
+        "lbl_period": "Période",
+        "lbl_block": "Bloc",
+        "bse_link": "Basis Set Exchange →",
+        "footer_data": "Données scientifiques : IUPAC, CRC Handbook, NIST · Basis Set Exchange (basissetexchange.org)",
+        "footer_credit": "Développé par Saloua EL FAKIR — Master 1 Chimie Informatique",
+        "hover_bloc": "Bloc",
+        "na": "N/A",
+    },
+    "ru": {
+        "title": "Интерактивная таблица Менделеева",
+        "subtitle": "Исследуйте 118 химических элементов с их научными свойствами — интерфейс доступен на русском языке.",
+        "detail_title": "Сведения об элементе",
+        "click_hint": "Нажмите на ячейку таблицы, чтобы отобразить свойства элемента.",
+        "group_ph": "Фильтр по группе",
+        "group_label": "Группа",
+        "block_ph": "Фильтр по блоку",
+        "ecp_ph": "Фильтр по обработке ЭКП",
+        "search_ph": "Поиск по названию или символу",
+        "blocks": [
+            {"label": "Блок s  (щелочные, щёлочноземельные, H, He)", "value": "s"},
+            {"label": "Блок p  (неметаллы, галогены, благородные газы…)", "value": "p"},
+            {"label": "Блок d  (переходные металлы)", "value": "d"},
+            {"label": "Блок f  (лантаноиды и актиноиды)", "value": "f"},
+        ],
+        "ecps": [
+            {"label": "Все электроны (Z ≤ 18)", "value": "Tous-électrons"},
+            {"label": "ЭКП необязателен (Z 19–36)", "value": "ECP optionnel"},
+            {"label": "ЭКП рекомендуется (Z 37–54)", "value": "ECP recommandé"},
+            {"label": "ЭКП необходим (Z 55–86)", "value": "ECP requis"},
+            {"label": "ЭКП / релятивистский (Z ≥ 87)", "value": "ECP/relativiste"},
+        ],
+        "categories": {
+            "métal alcalin": "Щелочной металл",
+            "métal alcalino-terreux": "Щёлочноземельный металл",
+            "lanthanide": "Лантаноид",
+            "actinide": "Актиноид",
+            "métal de transition": "Переходный металл",
+            "post-transition metal": "Постпереходный металл",
+            "métalloïde": "Металлоид",
+            "non-metal": "Неметалл",
+            "halogène": "Галоген",
+            "gaz noble": "Благородный газ",
+            "métal": "Металл",
+        },
+        "ecp_values": {
+            "Tous-électrons": "Все электроны",
+            "ECP optionnel": "ЭКП необязателен",
+            "ECP recommandé": "ЭКП рекомендуется",
+            "ECP requis": "ЭКП необходим",
+            "ECP/relativiste": "ЭКП / релятивистский",
+        },
+        "relat_values": {
+            "Négligeable": "Пренебрежимо мал",
+            "Faible (optionnel)": "Слабый (необязательно)",
+            "Scalaire (DKH2 / ZORA)": "Скалярный (DKH2 / ZORA)",
+            "Scalaire + spin-orbite partiel": "Скалярный + спин-орбитальный (частично)",
+            "Spin-orbite requis (X2C / 4c-DHF)": "Спин-орбитальный необходим (X2C / 4c-DHF)",
+        },
+        "disp_values": {"D3BJ (Grimme)": "D3BJ (Гримме)", "N/A": "Н/П"},
+        "pseudo_none": "Отсутствует",
+        "sec_electronic": "Электронная структура",
+        "sec_atomic": "Атомные свойства",
+        "sec_compchem": "Вычислительное моделирование",
+        "lbl_ox": "Степени окисления",
+        "lbl_spin": "Мультиплетность (2S+1)",
+        "lbl_ie1": "1-й потенциал ионизации",
+        "lbl_ea": "Сродство к электрону",
+        "lbl_alpha": "Поляризуемость (α)",
+        "lbl_vdw": "Радиус ван-дер-Ваальса",
+        "lbl_vol": "Молярный объём",
+        "lbl_ecp": "Обработка ЭКП",
+        "lbl_basis": "Рекомендуемые базисные наборы",
+        "lbl_pseudo": "Псевдопотенциал",
+        "lbl_func": "DFT-функционал",
+        "lbl_disp": "Поправка на дисперсию",
+        "lbl_relat": "Релятивистские эффекты",
+        "lbl_group": "Группа",
+        "lbl_period": "Период",
+        "lbl_block": "Блок",
+        "bse_link": "Basis Set Exchange →",
+        "footer_data": "Научные данные: IUPAC, CRC Handbook, NIST · Basis Set Exchange (basissetexchange.org)",
+        "footer_credit": "Разработано Saloua EL FAKIR — Магистратура, вычислительная химия",
+        "hover_bloc": "Блок",
+        "na": "Н/П",
+    },
+}
+
+
+# FR : Attribution du bloc orbital (s/p/d/f) selon la configuration
+#      électronique de l'état fondamental. J'utilise des ensembles Python
+#      (set) plutôt que des conditions if/elif en cascade pour une lecture
+#      plus claire. He est classé en bloc s malgré sa position en groupe 18,
+#      conformément à la convention IUPAC. La sous-couche qui se remplit en
+#      dernier détermine le bloc (règle de Klechkowski pour l'ordre de
+#      remplissage, avec les exceptions connues : Cr, Cu, Pd, Au, etc.).
+# RU : Определение орбитального блока (s/p/d/f) по электронной конфигурации
+#      основного состояния. Я использую множества Python (set) вместо
+#      каскадных if/elif для более чёткого чтения. He относится к блоку s
+#      вопреки его положению в 18-й группе — в соответствии с соглашением
+#      IUPAC. Блок определяется последней заполняемой подоболочкой (правило
+#      Клечковского с известными исключениями: Cr, Cu, Pd, Au и др.).
