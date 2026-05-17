@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import numpy as np
 import pandas as pd
-from dash import html, dcc, Input, Output, callback
+from dash import html, dcc, Input, Output, State, callback
 import plotly.graph_objs as go
 
 # Properties shown in radar/table
@@ -48,8 +48,11 @@ def create_comparator_layout(df_main: pd.DataFrame) -> html.Div:
             ),
         ]),
         html.Div(className="comp-charts-row", children=[
-            dcc.Graph(id="comp-radar-chart", className="comp-radar",
-                      config={"displayModeBar": False}),
+            html.Div(className="comp-radar", children=[
+                dcc.Graph(id="comp-radar-chart",
+                          style={"height": "100%"},
+                          config={"displayModeBar": False}),
+            ]),
             html.Div(id="comp-table", className="comp-table-wrap"),
         ]),
     ])
@@ -67,29 +70,19 @@ def register_callbacks(df_main: pd.DataFrame) -> None:
     @callback(
         Output("comp-radar-chart", "figure"),
         Output("comp-table", "children"),
-        Output("comp-elem-select", "options"),
-        Output("comp-elem-select", "placeholder"),
         Input("comp-elem-select", "value"),
-        Input("lang", "data"),
+        State("lang", "data"),
     )
     def update_comparator(zs: list[int] | None, lang: str | None) -> tuple:
         lang = lang or "fr"
         lk   = lang if lang in ("fr", "ru") else "fr"
         name_col = "name_ru" if lang == "ru" else "name"
 
-        ph = {
-            "fr": "Sélectionner 2–4 éléments…",
-            "ru": "Выберите 2–4 элемента…",
-            "en": "Select 2–4 elements…",
-        }[lk]
-
-        opts = _elem_options(df_main, lang)
-
         if not zs or len(zs) < 2:
             no_sel = {"fr": "Sélectionnez au moins 2 éléments.",
                       "ru": "Выберите не менее 2 элементов.",
                       "en": "Select at least 2 elements."}[lk]
-            return go.Figure(), html.P(no_sel, className="reco-hint"), opts, ph
+            return go.Figure(), html.P(no_sel, className="reco-hint")
 
         # Limit to 4
         zs = list(zs)[:4]
@@ -143,6 +136,8 @@ def register_callbacks(df_main: pd.DataFrame) -> None:
             plot_bgcolor="#102027",
             margin=dict(l=30, r=30, t=30, b=30),
             font=dict(color="#cfd8dc", family="Inter"),
+            height=448,
+            autosize=True,
         )
 
         # Table
@@ -171,4 +166,19 @@ def register_callbacks(df_main: pd.DataFrame) -> None:
             ],
         )
 
-        return fig, table, opts, ph
+        return fig, table
+
+    @callback(
+        Output("comp-elem-select", "options"),
+        Output("comp-elem-select", "placeholder"),
+        Input("lang", "data"),
+    )
+    def update_comparator_lang(lang: str | None) -> tuple:
+        lang = lang or "fr"
+        lk   = lang if lang in ("fr", "ru") else "fr"
+        ph = {
+            "fr": "Sélectionner 2–4 éléments…",
+            "ru": "Выберите 2–4 элемента…",
+            "en": "Select 2–4 elements…",
+        }[lk]
+        return _elem_options(df_main, lang), ph

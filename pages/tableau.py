@@ -362,7 +362,7 @@ def _build_periodic_figure(group_filter=None, block_filter=None, ecp_filter=None
     Input("block-filter", "value"),
     Input("ecp-filter", "value"),
     Input("search-input", "value"),
-    Input("lang", "data"),
+    State("lang", "data"),
 )
 def update_graph(group_value, block_value, ecp_value, search_value, lang):
     return _build_periodic_figure(group_value, block_value, ecp_value, search_value, lang or "fr")
@@ -383,7 +383,7 @@ def update_selected_element(click_data):
 @callback(
     Output("element-details", "children"),
     Input("periodic-figure", "clickData"),
-    Input("lang", "data"),
+    State("lang", "data"),
 )
 def display_element_details(click_data, lang):
     lang = lang or "fr"
@@ -491,27 +491,31 @@ def display_element_details(click_data, lang):
 @callback(
     Output("recommendations-output", "children"),
     Output("last-recommendation", "data"),
-    Input("selected-element-z", "data"),
-    Input("selected-element-block", "data"),
+    Input("periodic-figure", "clickData"),
     Input("method-filter", "value"),
     Input("prop-filter", "value"),
-    Input("lang", "data"),
+    State("lang", "data"),
+    prevent_initial_call=True,
 )
-def update_recommendations(z, block, method_key, prop_key, lang):
+def update_recommendations(click_data, method_key, prop_key, lang):
     lang = lang or "fr"
     t = LANG[lang]
 
-    if z is None:
+    if not click_data or not click_data.get("points"):
         return [html.P(t["reco_no_element"], className="reco-hint")], None
+
+    d     = click_data["points"][0]["customdata"]
+    z     = int(d[0])
+    block = d[5]
+
     if not method_key or not prop_key:
         return [html.P(t["reco_no_filters"], className="reco-hint")], None
 
-    el_data  = ELEMENTS_BY_Z.get(z, {})
-    el_name  = el_data.get("name_ru", el_data.get("name", "?")) if lang == "ru" else el_data.get("name", "?")
-    sym      = el_data.get("symbol", "?")
-    eff_block = block or el_data.get("block", "s")
+    el_data = ELEMENTS_BY_Z.get(z, {})
+    el_name = el_data.get("name_ru", el_data.get("name", "?")) if lang == "ru" else el_data.get("name", "?")
+    sym     = el_data.get("symbol", "?")
 
-    rec = recommend(z, eff_block, method_key, prop_key, lang)
+    rec = recommend(z, block, method_key, prop_key, lang)
 
     store_data = {
         "z": z, "method_key": method_key, "prop_key": prop_key,
@@ -617,7 +621,7 @@ def generate_export(n_clicks, store_data, software, lang):
     Input("mol-analyse-btn", "n_clicks"),
     State("mol-formula-input", "value"),
     State("mol-prop-select", "value"),
-    Input("lang", "data"),
+    State("lang", "data"),
     prevent_initial_call=False,
 )
 def analyse_molecule(n_clicks, formula, prop_key, lang):

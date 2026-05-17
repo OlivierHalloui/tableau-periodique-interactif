@@ -6,7 +6,7 @@ Trends Tab: periodic trend visualization.
 from __future__ import annotations
 
 import pandas as pd
-from dash import html, dcc, Input, Output, callback
+from dash import html, dcc, Input, Output, State, callback
 
 import plotly.graph_objs as go
 
@@ -84,13 +84,11 @@ def register_callbacks(df_main: pd.DataFrame) -> None:
 
     @callback(
         Output("trend-chart", "figure"),
-        Output("trend-prop-select", "options"),
-        Output("trend-view-select", "options"),
         Input("trend-prop-select", "value"),
         Input("trend-view-select", "value"),
-        Input("lang", "data"),
+        State("lang", "data"),
     )
-    def update_trend(prop: str | None, view: str | None, lang: str | None) -> tuple:
+    def update_trend_chart(prop: str | None, view: str | None, lang: str | None) -> go.Figure:
         lang  = lang  or "fr"
         prop  = prop  or "ie1"
         view  = view  or "z"
@@ -154,4 +152,13 @@ def register_callbacks(df_main: pd.DataFrame) -> None:
             hovermode="closest",
         )
 
-        return fig, _prop_options(lang), VIEW_OPTIONS.get(lang, VIEW_OPTIONS["fr"])
+        return fig
+
+    @callback(
+        Output("trend-prop-select", "options"),
+        Output("trend-view-select", "options"),
+        Input("lang", "data"),
+    )
+    def update_trend_lang(lang: str | None) -> tuple:
+        lang = lang or "fr"
+        return _prop_options(lang), VIEW_OPTIONS.get(lang, VIEW_OPTIONS["fr"])
