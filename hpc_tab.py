@@ -148,7 +148,7 @@ def register_callbacks(app=None):
             html.Textarea(
                 id="hpc-script-area",
                 children=script,
-                readOnly=True,
+                readOnly="",
                 style={
                     "width": "100%", "height": "420px", "fontFamily": "monospace",
                     "fontSize": "0.82em", "background": "#1a1a2e", "color": "#e0e0e0",
