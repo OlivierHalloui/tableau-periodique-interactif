@@ -1,5 +1,8 @@
-# Интерактивная таблица Менделеева — Вычислительная химия
-# Tableau périodique interactif — Chimie Informatique
+# СПЕКТР — Вычислительная химия
+# СПЕКТР — Chimie Informatique
+
+> **СПЕКТР** — *Système Périodique des Éléments pour les Calculs Quantico-chimiques Théoriques et les Recommandations*
+> **СПЕКТР** — *Система Периодических Элементов, Квантовохимических Теоретических Расчётов*
 
 **Автор / Auteur : Saloua EL FAKIR**
 Магистратура 1-й год, Вычислительная химия / Master 1 Chimie Informatique
@@ -22,11 +25,11 @@
 
 ## Описание
 
-**RU :** Интерактивное веб-приложение таблицы Менделеева, разработанное в рамках учебного задания первого года магистратуры по вычислительной химии. Приложение объединяет в одном месте все данные, необходимые для квантово-химических расчётов: псевдопотенциалы, базисные наборы, функционалы DFT, мультиплетность спина, релятивистские поправки — а также инструменты для планирования расчётов: рекомендательный модуль, генератор входных файлов и 3D-визуализацию орбиталей.
+**RU :** **СПЕКТР** — интерактивное веб-приложение для вычислительной химии, разработанное в рамках учебного задания первого года магистратуры. Приложение объединяет в одном месте все данные, необходимые для квантово-химических расчётов: псевдопотенциалы, базисные наборы, функционалы DFT, мультиплетность спина, релятивистские поправки — а также инструменты для планирования расчётов: рекомендательный модуль, генератор входных файлов и 3D-визуализацию орбиталей.
 
 Приложение доступно на двух языках — **русском и французском** — с мгновенным переключением без перезагрузки страницы.
 
-**FR :** Application web interactive du tableau périodique de Mendeleïev, développée dans le cadre d'un devoir de Master 1 Chimie Informatique. Elle centralise toutes les données utiles aux calculs quantiques (pseudopotentiels, basis sets, fonctionnelles DFT, multiplicité de spin, effets relativistes) et propose des outils de planification : module de recommandation, générateur de fichiers d'entrée et visualisation 3D des orbitales.
+**FR :** **СПЕКТР** (*Système Périodique des Éléments pour les Calculs Quantico-chimiques Théoriques et les Recommandations*) est une application web de chimie computationnelle développée dans le cadre d'un devoir de Master 1 Chimie Informatique. Elle centralise toutes les données utiles aux calculs quantiques (pseudopotentiels, basis sets, fonctionnelles DFT, multiplicité de spin, effets relativistes) et propose des outils de planification : module de recommandation, générateur de fichiers d'entrée et visualisation 3D des orbitales.
 
 L'application est disponible en **russe et en français**, avec bascule instantanée sans rechargement de page.
 
@@ -36,7 +39,7 @@ L'application est disponible en **russe et en français**, avec bascule instanta
 
 **RU :**
 
-### Onglet 1 — Таблица Менделеева
+### Onglet 1 — Таблица СПЕКТР
 - 118 элементов в стандартной компоновке; лантаноиды и актиноиды — в отдельных строках (6\* и 7\*)
 - Цветовое кодирование по химическому семейству с постоянной легендой
 - Всплывающая подсказка: символ, название, Z, блок, IE₁

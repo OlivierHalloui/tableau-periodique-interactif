@@ -95,11 +95,18 @@ def register_callbacks(df_main: pd.DataFrame) -> None:
         prop_labels = [p[lk] for p in COMP_PROPS]
 
         # Normalize across all 118 elements for the radar
-        dfall = df_main.drop_duplicates(subset="atomic_number", keep="first")
-        norms: dict[str, pd.Series] = {}
+        # Build {z: norm_val} per property to avoid fragile reindex lookups
+        dfall = (df_main
+                 .drop_duplicates(subset="atomic_number", keep="first")
+                 .reset_index(drop=True))
+        norm_by_z: dict[str, dict[int, float]] = {}
         for pk in prop_keys:
             col = pd.to_numeric(dfall[pk], errors="coerce")
-            norms[pk] = _normalize_col(col)
+            norm_col = _normalize_col(col)
+            norm_by_z[pk] = {
+                int(row["atomic_number"]): float(norm_col.iloc[i]) if not np.isnan(norm_col.iloc[i]) else 0.0
+                for i, row in dfall.iterrows()
+            }
 
         fig = go.Figure()
         for i, (z, row) in enumerate(dff.iterrows()):
@@ -107,9 +114,8 @@ def register_callbacks(df_main: pd.DataFrame) -> None:
             sym = row["symbol"]
             radar_vals: list[float] = []
             for pk in prop_keys:
-                idx = dfall[dfall["atomic_number"] == z].index
-                val = norms[pk].reindex(idx).iloc[0] if len(idx) > 0 else 0.0
-                radar_vals.append(float(val) if not np.isnan(float(val)) else 0.0)
+                val = norm_by_z[pk].get(int(z), 0.0)
+                radar_vals.append(val)
             # Close the radar
             radar_vals_closed = radar_vals + [radar_vals[0]]
             labels_closed     = prop_labels + [prop_labels[0]]

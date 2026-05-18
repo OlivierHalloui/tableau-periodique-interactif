@@ -84,6 +84,7 @@ def _block(z: int) -> str:
     d_set = (
         set(range(21, 31)) | set(range(39, 49))
         | set(range(72, 81)) | set(range(104, 113))
+        | {57, 89}  # La ([Xe]5d¹) et Ac ([Rn]6d¹) : configuration d¹, bloc d selon IUPAC
     )
     if z in s_set:
         return "s"

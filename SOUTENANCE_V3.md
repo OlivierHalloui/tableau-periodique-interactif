@@ -20,7 +20,7 @@ une visualisation 3D des orbitales et un assistant moléculaire.
 эволюцию от V1 до V3.
 
 1. **Четыре страницы приложения:**
-   - `/` — интерактивная таблица Менделеева с фильтрами, панелью сведений,
+   - `/` — таблица СПЕКТР с фильтрами, панелью сведений,
      движком рекомендаций и генератором входных файлов.
    - `/tendances` — графики тенденций (электроотрицательность, радиус, IE1…)
      по группам и периодам.
@@ -57,7 +57,7 @@ une visualisation 3D des orbitales et un assistant moléculaire.
 puis expliquez l'évolution de la V1 à la V3.
 
 1. **Les quatre pages de l'application :**
-   - `/` — tableau périodique interactif avec filtres, panneau de détails,
+   - `/` — tableau СПЕКТР avec filtres, panneau de détails,
      moteur de recommandations et générateur de fichiers d'entrée.
    - `/tendances` — graphiques de tendances (électronégativité, rayon, IE1…)
      par groupe et par période.

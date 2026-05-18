@@ -845,3 +845,15 @@ body {
     border-top: 1px solid rgba(236, 239, 241, 0.1);
     margin: 14px 0;
 }
+/* ─── Orbital disclaimer banner ─────────────────────────────────────── */
+
+.orbital-disclaimer {
+    background: rgba(255, 183, 77, 0.1);
+    border-left: 3px solid #ffb74d;
+    border-radius: 4px;
+    padding: 8px 14px;
+    margin-bottom: 12px;
+    font-size: 0.82rem;
+    color: #ffcc80;
+    line-height: 1.5;
+}

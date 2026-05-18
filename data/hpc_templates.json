@@ -1,0 +1,17 @@
+{
+  "slurm": {
+    "label": "SLURM",
+    "extension": ".sh",
+    "template": "#!/bin/bash\n#SBATCH --job-name={job_name}\n#SBATCH --partition={partition}\n#SBATCH --nodes=1\n#SBATCH --ntasks-per-node={cores}\n#SBATCH --mem={mem_gb}G\n#SBATCH --time={walltime}\n#SBATCH --output={job_name}_%j.out\n#SBATCH --error={job_name}_%j.err\n\n# Load modules\nmodule purge\nmodule load {module_orca}\n\n# Working directory\ncd $SLURM_SUBMIT_DIR\n\n# ORCA path (adjust to your cluster)\nORCA=$(which orca)\n\n# Run ORCA\n$ORCA {input_file} > {job_name}.out\n\necho \"Job finished: $(date)\"\n"
+  },
+  "pbs": {
+    "label": "PBS/Torque",
+    "extension": ".pbs",
+    "template": "#!/bin/bash\n#PBS -N {job_name}\n#PBS -q {partition}\n#PBS -l nodes=1:ppn={cores}\n#PBS -l mem={mem_gb}gb\n#PBS -l walltime={walltime}\n#PBS -j oe\n#PBS -o {job_name}.out\n\n# Load modules\nmodule purge\nmodule load {module_orca}\n\n# Working directory\ncd $PBS_O_WORKDIR\n\n# ORCA path\nORCA=$(which orca)\n\n# Run ORCA\n$ORCA {input_file} > {job_name}.out\n\necho \"Job finished: $(date)\"\n"
+  },
+  "sge": {
+    "label": "SGE (Sun Grid Engine)",
+    "extension": ".sge",
+    "template": "#!/bin/bash\n#$ -N {job_name}\n#$ -q {partition}\n#$ -pe mpi {cores}\n#$ -l h_vmem={mem_per_core}G\n#$ -l h_rt={walltime}\n#$ -cwd\n#$ -j y\n#$ -o {job_name}.log\n\n# Load modules\nmodule purge\nmodule load {module_orca}\n\n# ORCA path\nORCA=$(which orca)\n\n# Run ORCA\n$ORCA {input_file} > {job_name}.out\n\necho \"Job finished: $(date)\"\n"
+  }
+}

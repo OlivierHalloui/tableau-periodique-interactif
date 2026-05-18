@@ -1,0 +1,70 @@
+{
+  "geometries": {
+    "octahedral": {
+      "label_fr": "Octaédrique (Oh)",
+      "label_ru": "Октаэдрическая (Oh)",
+      "levels": {
+        "eg":  {"energy_frac": 0.6,  "degeneracy": 2, "label": "eₘ"},
+        "t2g": {"energy_frac": -0.4, "degeneracy": 3, "label": "t₂g"}
+      },
+      "delta_label": "Δₒ",
+      "pairing_energy_comment_fr": "Énergie d'appariement P ~ 15 000–25 000 cm⁻¹ (typique pour les métaux 3d)",
+      "pairing_energy_comment_ru": "Энергия спаривания P ~ 15 000–25 000 см⁻¹ (типично для 3d-металлов)"
+    },
+    "tetrahedral": {
+      "label_fr": "Tétraédrique (Td)",
+      "label_ru": "Тетраэдрическая (Td)",
+      "levels": {
+        "e":  {"energy_frac": -0.6,  "degeneracy": 2, "label": "e"},
+        "t2": {"energy_frac":  0.4,  "degeneracy": 3, "label": "t₂"}
+      },
+      "delta_label": "Δₜ",
+      "delta_relation_fr": "Δₜ ≈ 4/9 Δₒ (≈ 0.44 × Δₒ)",
+      "delta_relation_ru": "Δₜ ≈ 4/9 Δₒ (≈ 0.44 × Δₒ)"
+    },
+    "square_planar": {
+      "label_fr": "Plan carré (D₄ₕ)",
+      "label_ru": "Квадратно-планарная (D₄ₕ)",
+      "levels": {
+        "dx2y2":  {"energy_frac":  1.228, "degeneracy": 1, "label": "dₓ²₋ᵧ²"},
+        "dxy":    {"energy_frac":  0.228, "degeneracy": 1, "label": "d_{xy}"},
+        "dz2":    {"energy_frac": -0.428, "degeneracy": 1, "label": "d_{z²}"},
+        "dxzdyz": {"energy_frac": -0.514, "degeneracy": 2, "label": "d_{xz,yz}"}
+      },
+      "delta_label": "Δsp",
+      "note_fr": "Géométrie favorisée pour d⁸ (Ni²⁺, Pd²⁺, Pt²⁺, Au³⁺)",
+      "note_ru": "Геометрия предпочтительна для d⁸ (Ni²⁺, Pd²⁺, Pt²⁺, Au³⁺)"
+    }
+  },
+  "transition_metals": {
+    "21": {"symbol": "Sc", "name_fr": "Scandium",  "d_electrons_0": 1},
+    "22": {"symbol": "Ti", "name_fr": "Titane",    "d_electrons_0": 2},
+    "23": {"symbol": "V",  "name_fr": "Vanadium",  "d_electrons_0": 3},
+    "24": {"symbol": "Cr", "name_fr": "Chrome",    "d_electrons_0": 6, "note": "d⁵ en Cr⁰ (anom.)"},
+    "25": {"symbol": "Mn", "name_fr": "Manganèse", "d_electrons_0": 5},
+    "26": {"symbol": "Fe", "name_fr": "Fer",       "d_electrons_0": 6},
+    "27": {"symbol": "Co", "name_fr": "Cobalt",    "d_electrons_0": 7},
+    "28": {"symbol": "Ni", "name_fr": "Nickel",    "d_electrons_0": 8},
+    "29": {"symbol": "Cu", "name_fr": "Cuivre",    "d_electrons_0": 10},
+    "30": {"symbol": "Zn", "name_fr": "Zinc",      "d_electrons_0": 10},
+    "42": {"symbol": "Mo", "name_fr": "Molybdène", "d_electrons_0": 6},
+    "44": {"symbol": "Ru", "name_fr": "Ruthénium", "d_electrons_0": 7},
+    "45": {"symbol": "Rh", "name_fr": "Rhodium",   "d_electrons_0": 8},
+    "46": {"symbol": "Pd", "name_fr": "Palladium", "d_electrons_0": 10},
+    "74": {"symbol": "W",  "name_fr": "Tungstène", "d_electrons_0": 6},
+    "76": {"symbol": "Os", "name_fr": "Osmium",    "d_electrons_0": 8},
+    "77": {"symbol": "Ir", "name_fr": "Iridium",   "d_electrons_0": 9},
+    "78": {"symbol": "Pt", "name_fr": "Platine",   "d_electrons_0": 10}
+  },
+  "typical_delta_o": {
+    "Cr": {"H2O": 17400, "NH3": 21500, "en": 21800, "CN": 26600},
+    "Fe": {"H2O": 10400, "NH3": 32800, "CN": 33000},
+    "Co": {"H2O": 9300,  "NH3": 23000, "CN": 34000},
+    "Ni": {"H2O": 8500,  "NH3": 10800},
+    "Rh": {"H2O": 27200, "NH3": 34100, "CN": 45500},
+    "Ir": {"H2O": 41000, "CN": 52000}
+  },
+  "spectrochemical_series": [
+    "I⁻", "Br⁻", "Cl⁻", "F⁻", "OH⁻", "H₂O", "NCS⁻", "NH₃", "en", "bpy", "phen", "NO₂⁻", "PPh₃", "CO", "CN⁻"
+  ]
+}

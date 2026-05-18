@@ -5,8 +5,7 @@ Molecular formula analysis and computational method recommendation.
 """
 from __future__ import annotations
 
-import re
-from functools import reduce
+from data_loader import _block as _block_for_z
 
 # Éléments triés du plus long au plus court pour éviter les ambiguïtés (He avant H)
 _SYMBOLS_SORTED = [
@@ -15,7 +14,7 @@ _SYMBOLS_SORTED = [
     "Te","Xe","Cs","Ba","La","Ce","Pr","Nd","Pm","Sm","Eu","Gd","Tb","Dy","Ho","Er","Tm","Yb","Lu","Hf",
     "Ta","Re","Os","Ir","Pt","Au","Hg","Tl","Pb","Bi","Po","At","Rn","Fr","Ra","Ac","Th","Pa","Np","Pu",
     "Am","Cm","Bk","Cf","Es","Fm","Md","No","Lr","Rf","Db","Sg","Bh","Hs","Mt","Ds","Rg","Cn","Nh","Fl",
-    "Mc","Lv","Ts","Og","Yb","Y","W","V","U","I","F","N","O","B","C","H","P","S","K",
+    "Mc","Lv","Ts","Og","Y","W","V","U","I","F","N","O","B","C","H","P","S","K",
 ]
 # Remove duplicates preserving order
 _seen: set[str] = set()
@@ -81,25 +80,19 @@ def _z_for_symbol(sym: str, elements_by_sym: dict[str, dict]) -> int:
     return elements_by_sym.get(sym, {}).get("atomic_number", 0)
 
 
-def _block_for_z(z: int) -> str:
-    s_set = {1,2,3,4,11,12,19,20,37,38,55,56,87,88}
-    p_set = set(range(5,11))|set(range(13,19))|set(range(31,37))|set(range(49,55))|set(range(81,87))|set(range(113,119))
-    d_set = set(range(21,31))|set(range(39,49))|set(range(72,81))|set(range(104,113))
-    if z in s_set: return "s"
-    if z in p_set: return "p"
-    if z in d_set: return "d"
-    return "f"
-
-
 def recommend_for_molecule(
     formula:    str,
     prop_key:   str,
     lang:       str,
     elements_by_sym: dict[str, dict],
+    charge: int = 0,
+    mult:   int = 1,
 ) -> dict:
     """
     Analyse la formule et retourne des recommandations de calcul.
-    Returns dict with keys: elements, dominant_z, block, method, basis, notes.
+    Returns dict with keys: elements, dominant_z, block, method, basis, notes,
+                            charge, mult.
+    charge / mult : valeurs fournies par l'utilisateur (0 / 1 par défaut).
     """
     counts = parse_formula(formula)
     if not counts:
@@ -116,7 +109,8 @@ def recommend_for_molecule(
     has_tm   = any(21 <= z <= 30 or 39 <= z <= 48 or 72 <= z <= 80 for z in elem_zs.values())
     has_f    = any(57 <= z <= 71 or 89 <= z <= 103 for z in elem_zs.values())
     has_heavy = max_z > 36
-    open_shell_likely = (block in ("d", "f")) or has_tm or has_f
+    # Open shell if mult > 1 (explicit) or inferred from block
+    open_shell_likely = mult > 1 or (block in ("d", "f")) or has_tm or has_f
 
     # Method heuristic
     if has_f:
@@ -163,6 +157,13 @@ def recommend_for_molecule(
                       "ru": "ℹ Тяжёлые элементы — рекомендованы скалярные релятивистские поправки (DKH2/ZORA).",
                       "en": "ℹ Heavy elements — scalar relativistic effects (DKH2/ZORA) recommended."}.get(lang, ""))
 
+    if charge != 0:
+        extra.append({
+            "fr": f"ℹ Charge spécifiée : {charge:+d} — vérifiez la multiplicité de spin cohérente.",
+            "ru": f"ℹ Указан заряд : {charge:+d} — проверьте согласованную мультиплетность спина.",
+            "en": f"ℹ Specified charge: {charge:+d} — verify consistent spin multiplicity.",
+        }.get(lang if lang in ("fr", "ru") else "fr", ""))
+
     lk = lang if lang in ("fr", "ru") else "fr"
     return {
         "error":         False,
@@ -174,6 +175,8 @@ def recommend_for_molecule(
         "method":        method,
         "basis":         basis,
         "ecp":           ecp,
+        "charge":        charge,
+        "mult":          mult,
         "method_note":   method_note.get(lk, method_note["fr"]),
         "extra_notes":   [e for e in extra if e],
         "open_shell":    open_shell_likely,

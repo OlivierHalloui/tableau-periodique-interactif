@@ -1,0 +1,59 @@
+{
+  "sets": {
+    "GMTKN55": {
+      "desc_fr": "Thermochimie générale (55 sous-ensembles, 2462 points, Grimme 2017)",
+      "desc_ru": "Общая термохимия (55 подмножеств, 2462 точки, Гримме 2017)",
+      "url": "https://www.chemie.uni-bonn.de/grimme/de/software/gmtkn/gmtkn55",
+      "metric": "WTMAD-2 (kcal/mol)"
+    },
+    "S22": {
+      "desc_fr": "Interactions non-covalentes — 22 dimères (Hobza 2006)",
+      "desc_ru": "Нековалентные взаимодействия — 22 димера (Хобза 2006)",
+      "url": "https://doi.org/10.1039/b600027d",
+      "metric": "MAD (kcal/mol)"
+    },
+    "W4-17": {
+      "desc_fr": "Énergies d'atomisation haute précision — 200 molécules (Martin 2017)",
+      "desc_ru": "Энергии атомизации высокой точности — 200 молекул (Мартин 2017)",
+      "url": "https://doi.org/10.1063/1.4979679",
+      "metric": "MAD (kcal/mol)"
+    },
+    "BARRIER": {
+      "desc_fr": "Barrières de réaction (BH76 + BH76RC, Truhlar)",
+      "desc_ru": "Барьеры реакций (BH76 + BH76RC, Трулар)",
+      "url": "https://doi.org/10.1021/jp048012x",
+      "metric": "MAD (kcal/mol)"
+    }
+  },
+  "results": [
+    {"method": "LDA",           "set": "GMTKN55", "mad_kcal": 6.80,  "max_kcal": 45.2,  "cost_rel": 1.0,  "dispersion": false, "rung": 1},
+    {"method": "PBE",           "set": "GMTKN55", "mad_kcal": 4.77,  "max_kcal": 28.1,  "cost_rel": 1.0,  "dispersion": false, "rung": 2},
+    {"method": "PBE-D3BJ",      "set": "GMTKN55", "mad_kcal": 3.86,  "max_kcal": 22.3,  "cost_rel": 1.0,  "dispersion": true,  "rung": 2},
+    {"method": "TPSS",          "set": "GMTKN55", "mad_kcal": 3.98,  "max_kcal": 24.7,  "cost_rel": 1.2,  "dispersion": false, "rung": 3},
+    {"method": "TPSS-D3BJ",     "set": "GMTKN55", "mad_kcal": 3.17,  "max_kcal": 18.5,  "cost_rel": 1.2,  "dispersion": true,  "rung": 3},
+    {"method": "B3LYP",         "set": "GMTKN55", "mad_kcal": 4.47,  "max_kcal": 32.1,  "cost_rel": 3.0,  "dispersion": false, "rung": 4},
+    {"method": "B3LYP-D3BJ",    "set": "GMTKN55", "mad_kcal": 3.19,  "max_kcal": 18.9,  "cost_rel": 3.0,  "dispersion": true,  "rung": 4},
+    {"method": "PBE0",          "set": "GMTKN55", "mad_kcal": 3.12,  "max_kcal": 17.8,  "cost_rel": 3.0,  "dispersion": false, "rung": 4},
+    {"method": "PBE0-D3BJ",     "set": "GMTKN55", "mad_kcal": 2.64,  "max_kcal": 15.8,  "cost_rel": 3.0,  "dispersion": true,  "rung": 4},
+    {"method": "ωB97X-D",       "set": "GMTKN55", "mad_kcal": 2.32,  "max_kcal": 14.1,  "cost_rel": 3.5,  "dispersion": true,  "rung": 4},
+    {"method": "TPSSh-D3BJ",    "set": "GMTKN55", "mad_kcal": 2.89,  "max_kcal": 16.4,  "cost_rel": 3.2,  "dispersion": true,  "rung": 4},
+    {"method": "M06-2X",        "set": "GMTKN55", "mad_kcal": 2.91,  "max_kcal": 17.2,  "cost_rel": 3.5,  "dispersion": false, "rung": 4},
+    {"method": "CAM-B3LYP",     "set": "GMTKN55", "mad_kcal": 3.25,  "max_kcal": 19.5,  "cost_rel": 3.5,  "dispersion": false, "rung": 4},
+    {"method": "DSD-BLYP-D3BJ", "set": "GMTKN55", "mad_kcal": 1.25,  "max_kcal": 7.4,   "cost_rel": 6.0,  "dispersion": true,  "rung": 5},
+    {"method": "CCSD(T)",       "set": "GMTKN55", "mad_kcal": 0.48,  "max_kcal": 3.2,   "cost_rel": 50.0, "dispersion": false, "rung": 5},
+    {"method": "PBE",           "set": "S22",     "mad_kcal": 2.15,  "max_kcal": 5.8,   "cost_rel": 1.0,  "dispersion": false, "rung": 2},
+    {"method": "PBE-D3BJ",      "set": "S22",     "mad_kcal": 0.22,  "max_kcal": 0.65,  "cost_rel": 1.0,  "dispersion": true,  "rung": 2},
+    {"method": "B3LYP",         "set": "S22",     "mad_kcal": 1.97,  "max_kcal": 5.1,   "cost_rel": 3.0,  "dispersion": false, "rung": 4},
+    {"method": "B3LYP-D3BJ",    "set": "S22",     "mad_kcal": 0.19,  "max_kcal": 0.58,  "cost_rel": 3.0,  "dispersion": true,  "rung": 4},
+    {"method": "PBE0-D3BJ",     "set": "S22",     "mad_kcal": 0.15,  "max_kcal": 0.49,  "cost_rel": 3.0,  "dispersion": true,  "rung": 4},
+    {"method": "CCSD(T)",       "set": "S22",     "mad_kcal": 0.05,  "max_kcal": 0.15,  "cost_rel": 50.0, "dispersion": false, "rung": 5},
+    {"method": "B3LYP",         "set": "W4-17",   "mad_kcal": 5.12,  "max_kcal": 38.4,  "cost_rel": 3.0,  "dispersion": false, "rung": 4},
+    {"method": "PBE0",          "set": "W4-17",   "mad_kcal": 3.84,  "max_kcal": 25.1,  "cost_rel": 3.0,  "dispersion": false, "rung": 4},
+    {"method": "CCSD(T)",       "set": "W4-17",   "mad_kcal": 0.21,  "max_kcal": 1.8,   "cost_rel": 50.0, "dispersion": false, "rung": 5},
+    {"method": "PBE",           "set": "BARRIER", "mad_kcal": 9.32,  "max_kcal": 22.4,  "cost_rel": 1.0,  "dispersion": false, "rung": 2},
+    {"method": "B3LYP",         "set": "BARRIER", "mad_kcal": 4.35,  "max_kcal": 12.1,  "cost_rel": 3.0,  "dispersion": false, "rung": 4},
+    {"method": "PBE0",          "set": "BARRIER", "mad_kcal": 2.81,  "max_kcal": 8.3,   "cost_rel": 3.0,  "dispersion": false, "rung": 4},
+    {"method": "ωB97X-D",       "set": "BARRIER", "mad_kcal": 1.49,  "max_kcal": 4.7,   "cost_rel": 3.5,  "dispersion": true,  "rung": 4},
+    {"method": "CCSD(T)",       "set": "BARRIER", "mad_kcal": 0.42,  "max_kcal": 2.1,   "cost_rel": 50.0, "dispersion": false, "rung": 5}
+  ]
+}

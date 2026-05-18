@@ -146,6 +146,26 @@ def _spin2s(mult: int | None) -> int:
     return int(mult) - 1
 
 
+def _casscf_active_space(z: int, block: str, spin_mult: int) -> str:
+    """Return a CASSCF(n_el, n_orb) string adapted to the element's block.
+
+    Rules (minimal reasonable active space):
+    - bloc d : n_d electrons in 5 d-orbitals → (n_unpaired, 5)
+    - bloc f : n_f electrons in 7 f-orbitals → (n_unpaired + 2, 7)  minimal
+    - other  : (2, 2) minimal with warning comment
+    """
+    n_unpaired = spin_mult - 1
+    if block == "d":
+        n_el  = max(n_unpaired, 2)
+        n_orb = 5
+        return f"CASSCF({n_el},{n_orb})"
+    if block == "f":
+        n_el  = max(n_unpaired, 2)
+        n_orb = 7
+        return f"CASSCF({n_el},{n_orb})"
+    return "CASSCF(2,2)"
+
+
 # ─── ORCA ───────────────────────────────────────────────────────────────────
 
 def generate_orca_input(
@@ -164,10 +184,13 @@ def generate_orca_input(
     charge = 0
 
     # Method / functional keyword
+    block = element.get("block", "s")
     if functional:
         # Use the first recommended functional
         f = functional.split(",")[0].split("+")[0].strip()
         method_kw = ORCA_FUNCTIONAL.get(f, ORCA_FUNCTIONAL.get(functional, f.split("-D3")[0]))
+    elif method_key == "casscf":
+        method_kw = _casscf_active_space(z, block, mult)
     else:
         method_kw = ORCA_WF.get(method_key, "HF")
 
@@ -234,9 +257,12 @@ def generate_gaussian_input(
     charge = 0
 
     # Method
+    block = element.get("block", "s")
     if functional:
         f = functional.split(",")[0].split("+")[0].strip()
         method_kw = GAUSS_FUNCTIONAL.get(f, GAUSS_FUNCTIONAL.get(functional, f.split("-D3")[0]))
+    elif method_key == "casscf":
+        method_kw = _casscf_active_space(z, block, mult)
     else:
         method_kw = GAUSS_WF.get(method_key, "HF")
 

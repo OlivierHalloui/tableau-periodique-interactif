@@ -39,7 +39,7 @@ app.layout = html.Div(
                 html.Div(
                     className="hero-top",
                     children=[
-                        html.H1("Tableau périodique interactif", id="app-title"),
+                        html.H1("СПЕКТР", id="app-title"),
                         html.Div(
                             className="lang-toggle",
                             children=[
@@ -50,7 +50,7 @@ app.layout = html.Div(
                     ],
                 ),
                 html.P(
-                    "Propriétés atomiques, recommandations de méthodes de calcul (ECP, bases, fonctionnelles DFT), génération de fichiers d'entrée ORCA/Gaussian/PySCF, visualisation 3D des orbitales et comparateur d'éléments.",
+                    "Système Périodique des Éléments pour les Calculs Quantico-chimiques Théoriques et les Recommandations",
                     id="app-subtitle",
                 ),
             ],
@@ -60,10 +60,18 @@ app.layout = html.Div(
         html.Nav(
             className="main-tabs-bar",
             children=[
-                dcc.Link("Tableau",       href="/",            id="nav-tableau",  className="main-tab"),
-                dcc.Link("Tendances",     href="/tendances",   id="nav-tendances", className="main-tab"),
-                dcc.Link("Comparateur",   href="/comparateur", id="nav-comp",      className="main-tab"),
-                dcc.Link("Orbitales 3D",  href="/orbitales",   id="nav-orb",       className="main-tab"),
+                dcc.Link("Tableau",       href="/",              id="nav-tableau",    className="main-tab"),
+                dcc.Link("Tendances",     href="/tendances",     id="nav-tendances",  className="main-tab"),
+                dcc.Link("Comparateur",   href="/comparateur",   id="nav-comp",       className="main-tab"),
+                dcc.Link("Orbitales 3D",  href="/orbitales",     id="nav-orb",        className="main-tab"),
+                dcc.Link("Coût CPU/RAM",  href="/cost",          id="nav-cost",       className="main-tab"),
+                dcc.Link("HPC Script",    href="/hpc",           id="nav-hpc",        className="main-tab"),
+                dcc.Link("Solvant",       href="/solvation",     id="nav-solv",       className="main-tab"),
+                dcc.Link("Champ ligand",  href="/ligand-field",  id="nav-lf",         className="main-tab"),
+                dcc.Link("Benchmark",     href="/benchmark",     id="nav-bm",         className="main-tab"),
+                dcc.Link("Parser sortie", href="/output-parser", id="nav-op",         className="main-tab"),
+                dcc.Link("DFT Map",       href="/dft-map",       id="nav-dft",        className="main-tab"),
+                dcc.Link("SMILES",        href="/smiles",        id="nav-smiles",     className="main-tab"),
             ],
         ),
 
@@ -102,16 +110,24 @@ def toggle_lang(n_fr, n_ru, current_lang):
 
 
 @callback(
-    Output("app-title", "children"),
+    Output("app-title",    "children"),
     Output("app-subtitle", "children"),
-    Output("footer-data", "children"),
-    Output("footer-credit", "children"),
-    Output("btn-fr", "className"),
-    Output("btn-ru", "className"),
-    Output("nav-tableau", "children"),
-    Output("nav-tendances", "children"),
-    Output("nav-comp", "children"),
-    Output("nav-orb", "children"),
+    Output("footer-data",  "children"),
+    Output("footer-credit","children"),
+    Output("btn-fr",  "className"),
+    Output("btn-ru",  "className"),
+    Output("nav-tableau",  "children"),
+    Output("nav-tendances","children"),
+    Output("nav-comp",     "children"),
+    Output("nav-orb",      "children"),
+    Output("nav-cost",     "children"),
+    Output("nav-hpc",      "children"),
+    Output("nav-solv",     "children"),
+    Output("nav-lf",       "children"),
+    Output("nav-bm",       "children"),
+    Output("nav-op",       "children"),
+    Output("nav-dft",      "children"),
+    Output("nav-smiles",   "children"),
     Input("lang", "data"),
 )
 def update_global_language(lang):
@@ -131,24 +147,48 @@ def update_global_language(lang):
         t["nav_trends"],
         t["nav_comp"],
         t["nav_orb"],
+        t["nav_cost"],
+        t["nav_hpc"],
+        t["nav_solv"],
+        t["nav_lf"],
+        t["nav_bm"],
+        t["nav_op"],
+        t["nav_dft"],
+        t["nav_smiles"],
     )
 
 
 @callback(
     Output("nav-tableau",  "className"),
-    Output("nav-tendances", "className"),
+    Output("nav-tendances","className"),
     Output("nav-comp",     "className"),
     Output("nav-orb",      "className"),
+    Output("nav-cost",     "className"),
+    Output("nav-hpc",      "className"),
+    Output("nav-solv",     "className"),
+    Output("nav-lf",       "className"),
+    Output("nav-bm",       "className"),
+    Output("nav-op",       "className"),
+    Output("nav-dft",      "className"),
+    Output("nav-smiles",   "className"),
     Input("url", "pathname"),
 )
 def update_active_nav(pathname):
     base = "main-tab"
     sel  = "main-tab main-tab--selected"
     return (
-        sel  if pathname in ("/", "")    else base,
-        sel  if pathname == "/tendances"  else base,
-        sel  if pathname == "/comparateur" else base,
-        sel  if pathname == "/orbitales"  else base,
+        sel if pathname in ("/", "")         else base,
+        sel if pathname == "/tendances"       else base,
+        sel if pathname == "/comparateur"     else base,
+        sel if pathname == "/orbitales"       else base,
+        sel if pathname == "/cost"            else base,
+        sel if pathname == "/hpc"             else base,
+        sel if pathname == "/solvation"       else base,
+        sel if pathname == "/ligand-field"    else base,
+        sel if pathname == "/benchmark"       else base,
+        sel if pathname == "/output-parser"   else base,
+        sel if pathname == "/dft-map"         else base,
+        sel if pathname == "/smiles"          else base,
     )
 
 

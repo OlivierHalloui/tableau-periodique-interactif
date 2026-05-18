@@ -6,3 +6,4 @@ qcelemental>=0.27.0
 periodictable>=1.6.1
 pytest>=8.0.0
 gunicorn>=21.2.0
+rdkit>=2023.3.1

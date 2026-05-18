@@ -1,0 +1,86 @@
+{
+  "methods": {
+    "hf": {
+      "label_fr": "Hartree-Fock (HF)",
+      "label_ru": "Хартри-Фок (ХФ)",
+      "scaling": 3.0,
+      "mem_factor": 1.0,
+      "ref_time_h": 0.01,
+      "note_fr": "Méthode de champ moyen, pas de corrélation électronique.",
+      "note_ru": "Метод среднего поля, без учёта электронной корреляции."
+    },
+    "dft_gga": {
+      "label_fr": "DFT GGA (PBE, BP86…)",
+      "label_ru": "ТФТ ОПГ (PBE, BP86…)",
+      "scaling": 3.0,
+      "mem_factor": 1.0,
+      "ref_time_h": 0.008,
+      "note_fr": "Fonctionnelles GGA pures : rapides, peu mémoire.",
+      "note_ru": "Чистые функционалы ОПГ: быстрые, мало памяти."
+    },
+    "dft_hybrid": {
+      "label_fr": "DFT hybride (PBE0, B3LYP…)",
+      "label_ru": "Гибридный ТФТ (PBE0, B3LYP…)",
+      "scaling": 3.2,
+      "mem_factor": 1.5,
+      "ref_time_h": 0.015,
+      "note_fr": "Échange exact : ×3–5 plus lent que GGA pour grands systèmes.",
+      "note_ru": "Точный обмен: в 3–5 раз медленнее ОПГ для больших систем."
+    },
+    "mp2": {
+      "label_fr": "MP2",
+      "label_ru": "МП2",
+      "scaling": 5.0,
+      "mem_factor": 4.0,
+      "ref_time_h": 0.1,
+      "note_fr": "Corrélation de 2ème ordre : RAM ∝ N⁴ (intégrales MO).",
+      "note_ru": "Корреляция 2-го порядка: ОЗУ ∝ N⁴ (МО-интегралы)."
+    },
+    "ccsd": {
+      "label_fr": "CCSD",
+      "label_ru": "КСКД",
+      "scaling": 6.0,
+      "mem_factor": 8.0,
+      "ref_time_h": 1.0,
+      "note_fr": "Coupled-cluster doubles : référence de précision chimique.",
+      "note_ru": "Кластеры с двойными возбуждениями: стандарт химической точности."
+    },
+    "ccsd_t": {
+      "label_fr": "CCSD(T)",
+      "label_ru": "КСКД(Т)",
+      "scaling": 7.0,
+      "mem_factor": 8.0,
+      "ref_time_h": 5.0,
+      "note_fr": "Gold standard de la chimie quantique. Très coûteux pour N > 50 atomes.",
+      "note_ru": "Золотой стандарт квантовой химии. Очень дорого для N > 50 атомов."
+    },
+    "casscf": {
+      "label_fr": "CASSCF/NEVPT2",
+      "label_ru": "КЭСПСС/НЕВПТ2",
+      "scaling": "exp",
+      "mem_factor": 16.0,
+      "ref_time_h": null,
+      "note_fr": "Croissance factorielle avec l'espace actif (ne,no). Limité à ~20 électrons actifs.",
+      "note_ru": "Факториальный рост с активным пространством (ne,no). Ограничен ~20 активными электронами."
+    }
+  },
+  "basis_factors": {
+    "dz": {"label_fr": "Double-ζ (DZ)", "label_ru": "Двойной-ζ (ДЗ)", "nbf_per_atom_light": 14, "nbf_per_atom_heavy": 30},
+    "tz": {"label_fr": "Triple-ζ (TZ)", "label_ru": "Тройной-ζ (ТЗ)", "nbf_per_atom_light": 30, "nbf_per_atom_heavy": 60},
+    "qz": {"label_fr": "Quadruple-ζ (QZ)", "label_ru": "Четверной-ζ (ЧЗ)", "nbf_per_atom_light": 55, "nbf_per_atom_heavy": 100}
+  },
+  "element_type_factors": {
+    "light": {"label_fr": "Atomes légers (H–Ar)", "label_ru": "Лёгкие атомы (H–Ar)", "nbf_scale": 1.0},
+    "tm":    {"label_fr": "Métaux de transition", "label_ru": "Переходные металлы",   "nbf_scale": 2.0},
+    "heavy": {"label_fr": "Éléments lourds (ECP)", "label_ru": "Тяжёлые элементы (ЭКП)", "nbf_scale": 1.5}
+  },
+  "platforms": {
+    "laptop":      {"label_fr": "Ordinateur portable (4 cœurs, 16 Go RAM)", "label_ru": "Ноутбук (4 ядра, 16 ГБ)", "cores": 4,   "speedup": 1.0},
+    "workstation": {"label_fr": "Station de travail (16 cœurs, 64 Go RAM)", "label_ru": "Рабочая станция (16 ядер, 64 ГБ)", "cores": 16,  "speedup": 3.5},
+    "hpc":         {"label_fr": "Cluster HPC (128 cœurs, 512 Go RAM)", "label_ru": "HPC кластер (128 ядер, 512 ГБ)", "cores": 128, "speedup": 20.0}
+  },
+  "reference": {
+    "system": "H₂O, base def2-TZVP, 1 cœur",
+    "n_bf_ref": 58
+  }
+}

@@ -175,7 +175,10 @@ def test_basis_ecp_consistency():
     (1, "s"), (2, "s"), (3, "s"), (4, "s"),
     (5, "p"), (10, "p"), (13, "p"), (18, "p"),
     (21, "d"), (30, "d"), (39, "d"), (48, "d"),
-    (57, "f"), (71, "f"), (89, "f"), (103, "f"),
+    (57, "d"),            # La : [Xe]5d¹ → bloc d (IUPAC)
+    (71, "f"),            # Lu : [Xe]4f¹⁴5d¹ → classé f (série lanthanides)
+    (89, "d"),            # Ac : [Rn]6d¹ → bloc d (IUPAC)
+    (103, "f"),
     (72, "d"), (104, "d"),
 ])
 def test_block_assignment(z, expected_block):

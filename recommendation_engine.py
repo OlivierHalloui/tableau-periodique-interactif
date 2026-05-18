@@ -31,9 +31,10 @@ def _orb() -> dict:  return _load("orbital_info.json")      # type: ignore[retur
 
 def _z_to_basis_cat(z: int) -> dict:
     cats = _rec()["basis_categories"]
-    for cat in cats.values():
-        if cat["z_min"] <= z <= cat["z_max"]:
-            return cat
+    # Prioritize narrower ranges (most specific) over broad ones
+    matching = [c for c in cats.values() if c["z_min"] <= z <= c["z_max"]]
+    if matching:
+        return min(matching, key=lambda c: c["z_max"] - c["z_min"])
     return cats["SHE"]
 
 
@@ -203,6 +204,8 @@ def _notes(z: int, block: str, method_key: str, prop_key: str,
             lines.append("⚠ Couche ouverte — utiliser le calcul unrestricted (UKS/ROHF)")
         if block == "f":
             lines.append("⚠ Élément f — envisager CASSCF/NEVPT2 si la multireférence est suspectée")
+        if method_key == "ccsd" and block in ("d", "f"):
+            lines.append("⚠ CCSD(T) sur métal : vérifier le T₁ diagnostic (T₁ > 0.02 indique un caractère multiréférence) — envisager CASSCF/NEVPT2")
         if prop_key == "nmr":
             lines.append("ℹ RMN : méthode GIAO recommandée ; base spéciale pcSseg-3 ou IGLO-III")
         if prop_key == "dispersion":
@@ -220,6 +223,8 @@ def _notes(z: int, block: str, method_key: str, prop_key: str,
             lines.append("⚠ Незакрытая оболочка — использовать unrestricted расчёт (UKS/ROHF)")
         if block == "f":
             lines.append("⚠ f-элемент — рассмотреть CASSCF/NEVPT2 при подозрении на мультиреференс")
+        if method_key == "ccsd" and block in ("d", "f"):
+            lines.append("⚠ CCSD(T) на металле: проверить T₁ диагностику (T₁ > 0.02 — мультиреференс) — рекомендован CASSCF/NEVPT2")
         if prop_key == "nmr":
             lines.append("ℹ ЯМР: рекомендуется метод GIAO; специальные базисы pcSseg-3 или IGLO-III")
         if prop_key == "dispersion":
@@ -242,6 +247,13 @@ def recommend(z: int, block: str, method_key: str, prop_key: str,
                     relativistic, software, links, notes, orca_snippet,
                     method_info, property_info
     """
+    methods = _rec()["methods"]
+    props   = _rec()["properties"]
+    if method_key not in methods:
+        raise ValueError(f"Méthode inconnue : {method_key!r}. Valides : {list(methods)}")
+    if prop_key not in props:
+        raise ValueError(f"Propriété inconnue : {prop_key!r}. Valides : {list(props)}")
+
     basis, aux, ecp   = _select_basis(z, prop_key)
     functional, disp  = _select_functional(z, block, method_key, prop_key)
     relat             = _relativistic_level(z) if lang == "fr" else _relativistic_level_ru(z)

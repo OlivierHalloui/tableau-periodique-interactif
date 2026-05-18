@@ -1,0 +1,122 @@
+{
+  "none": {
+    "label_fr": "Phase gazeuse (sans solvant)",
+    "label_ru": "Газовая фаза (без растворителя)",
+    "epsilon": 1.0,
+    "orca_kw": null,
+    "gaussian_kw": null,
+    "pyscf_kw": null
+  },
+  "water": {
+    "label_fr": "Eau (H₂O)",
+    "label_ru": "Вода (H₂O)",
+    "epsilon": 78.36,
+    "orca_kw": "CPCM(Water)",
+    "gaussian_kw": "SCRF=(PCM,Solvent=Water)",
+    "pyscf_kw": "pcm.eps = 78.36"
+  },
+  "acetonitrile": {
+    "label_fr": "Acétonitrile (CH₃CN)",
+    "label_ru": "Ацетонитрил (CH₃CN)",
+    "epsilon": 35.69,
+    "orca_kw": "CPCM(Acetonitrile)",
+    "gaussian_kw": "SCRF=(PCM,Solvent=Acetonitrile)",
+    "pyscf_kw": "pcm.eps = 35.69"
+  },
+  "dmso": {
+    "label_fr": "DMSO (diméthylsulfoxyde)",
+    "label_ru": "ДМСО (диметилсульфоксид)",
+    "epsilon": 46.70,
+    "orca_kw": "CPCM(DMSO)",
+    "gaussian_kw": "SCRF=(PCM,Solvent=DMSO)",
+    "pyscf_kw": "pcm.eps = 46.70"
+  },
+  "thf": {
+    "label_fr": "THF (tétrahydrofurane)",
+    "label_ru": "ТГФ (тетрагидрофуран)",
+    "epsilon": 7.58,
+    "orca_kw": "CPCM(THF)",
+    "gaussian_kw": "SCRF=(PCM,Solvent=THF)",
+    "pyscf_kw": "pcm.eps = 7.58"
+  },
+  "methanol": {
+    "label_fr": "Méthanol (CH₃OH)",
+    "label_ru": "Метанол (CH₃OH)",
+    "epsilon": 32.70,
+    "orca_kw": "CPCM(Methanol)",
+    "gaussian_kw": "SCRF=(PCM,Solvent=Methanol)",
+    "pyscf_kw": "pcm.eps = 32.70"
+  },
+  "ethanol": {
+    "label_fr": "Éthanol (C₂H₅OH)",
+    "label_ru": "Этанол (C₂H₅OH)",
+    "epsilon": 24.85,
+    "orca_kw": "CPCM(Ethanol)",
+    "gaussian_kw": "SCRF=(PCM,Solvent=Ethanol)",
+    "pyscf_kw": "pcm.eps = 24.85"
+  },
+  "dichloromethane": {
+    "label_fr": "Dichlorométhane (CH₂Cl₂)",
+    "label_ru": "Дихлорметан (CH₂Cl₂)",
+    "epsilon": 8.93,
+    "orca_kw": "CPCM(CH2Cl2)",
+    "gaussian_kw": "SCRF=(PCM,Solvent=Dichloromethane)",
+    "pyscf_kw": "pcm.eps = 8.93"
+  },
+  "chloroform": {
+    "label_fr": "Chloroforme (CHCl₃)",
+    "label_ru": "Хлороформ (CHCl₃)",
+    "epsilon": 4.72,
+    "orca_kw": "CPCM(Chloroform)",
+    "gaussian_kw": "SCRF=(PCM,Solvent=Chloroform)",
+    "pyscf_kw": "pcm.eps = 4.72"
+  },
+  "toluene": {
+    "label_fr": "Toluène",
+    "label_ru": "Толуол",
+    "epsilon": 2.37,
+    "orca_kw": "CPCM(Toluene)",
+    "gaussian_kw": "SCRF=(PCM,Solvent=Toluene)",
+    "pyscf_kw": "pcm.eps = 2.37"
+  },
+  "hexane": {
+    "label_fr": "Hexane",
+    "label_ru": "Гексан",
+    "epsilon": 1.88,
+    "orca_kw": "CPCM(Hexane)",
+    "gaussian_kw": "SCRF=(PCM,Solvent=Hexane)",
+    "pyscf_kw": "pcm.eps = 1.88"
+  },
+  "acetone": {
+    "label_fr": "Acétone",
+    "label_ru": "Ацетон",
+    "epsilon": 20.70,
+    "orca_kw": "CPCM(Acetone)",
+    "gaussian_kw": "SCRF=(PCM,Solvent=Acetone)",
+    "pyscf_kw": "pcm.eps = 20.70"
+  },
+  "dmf": {
+    "label_fr": "DMF (diméthylformamide)",
+    "label_ru": "ДМФА (диметилформамид)",
+    "epsilon": 36.71,
+    "orca_kw": "CPCM(DMF)",
+    "gaussian_kw": "SCRF=(PCM,Solvent=DMF)",
+    "pyscf_kw": "pcm.eps = 36.71"
+  },
+  "ethylacetate": {
+    "label_fr": "Acétate d'éthyle",
+    "label_ru": "Этилацетат",
+    "epsilon": 6.02,
+    "orca_kw": "CPCM(EthylAcetate)",
+    "gaussian_kw": "SCRF=(PCM,Solvent=EthylAcetate)",
+    "pyscf_kw": "pcm.eps = 6.02"
+  },
+  "custom": {
+    "label_fr": "Personnalisé (ε défini manuellement)",
+    "label_ru": "Пользовательский (ε задаётся вручную)",
+    "epsilon": null,
+    "orca_kw": "CPCM",
+    "gaussian_kw": "SCRF=PCM",
+    "pyscf_kw": "pcm.eps = ?"
+  }
+}

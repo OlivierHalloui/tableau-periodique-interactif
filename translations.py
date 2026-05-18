@@ -6,8 +6,8 @@ from __future__ import annotations
 
 LANG: dict[str, dict] = {
     "fr": {
-        "title": "Tableau périodique interactif",
-        "subtitle": "Propriétés atomiques, recommandations de méthodes de calcul (ECP, bases, fonctionnelles DFT), génération de fichiers d'entrée ORCA/Gaussian/PySCF, visualisation 3D des orbitales et comparateur d'éléments.",
+        "title": "СПЕКТР",
+        "subtitle": "Système Périodique des Éléments pour les Calculs Quantico-chimiques Théoriques et les Recommandations — propriétés atomiques, basis sets, fonctionnelles DFT, génération d'inputs ORCA/Gaussian/PySCF, visualisation 3D des orbitales.",
         "detail_title": "Détails de l'élément",
         "click_hint": "Cliquez sur une case du tableau pour afficher les propriétés de l'élément.",
         "group_ph": "Filtrer par groupe",
@@ -111,6 +111,14 @@ LANG: dict[str, dict] = {
         "nav_trends":  "Tendances",
         "nav_comp":    "Comparateur",
         "nav_orb":     "Orbitales 3D",
+        "nav_cost":    "Coût CPU/RAM",
+        "nav_hpc":     "HPC Script",
+        "nav_solv":    "Solvant",
+        "nav_lf":      "Champ ligand",
+        "nav_bm":      "Benchmark",
+        "nav_op":      "Parser sortie",
+        "nav_dft":     "DFT Map",
+        "nav_smiles":  "SMILES",
         "export_title":    "Exporter le fichier d'entrée",
         "export_sw_ph":    "Logiciel cible",
         "export_btn":      "Générer le fichier",
@@ -123,10 +131,16 @@ LANG: dict[str, dict] = {
         "mol_basis":       "Base suggérée",
         "mol_ecp":         "ECP",
         "mol_none":        "Aucun",
+        "orbital_disclaimer": (
+            "⚠ Ces orbitales sont calculées pour l'atome d'hydrogène (Z = 1, modèle hydrogénoïde). "
+            "Pour tout autre élément, les orbitales de Kohn-Sham ou HF diffèrent significativement "
+            "— cette visualisation est indicative."
+        ),
+        "ecp_nmr_note": "ℹ ECP non utilisé : le calcul tous-électrons est requis pour les propriétés magnétiques (méthode GIAO/IGLO).",
     },
     "ru": {
-        "title": "Интерактивная таблица Менделеева",
-        "subtitle": "Атомные свойства, рекомендации методов расчёта (ЭКП, базисные наборы, функционалы DFT), генерация входных файлов ORCA/Gaussian/PySCF, 3D-визуализация орбиталей и сравнение элементов.",
+        "title": "СПЕКТР",
+        "subtitle": "Система Периодических Элементов, Квантовохимических Теоретических Расчётов — атомные свойства, базисные наборы, функционалы DFT, генерация входных файлов ORCA/Gaussian/PySCF, 3D-визуализация орбиталей.",
         "detail_title": "Свойства элемента",
         "click_hint": "Нажмите на ячейку таблицы, чтобы просмотреть свойства элемента.",
         "group_ph": "Фильтр по группе",
@@ -230,6 +244,14 @@ LANG: dict[str, dict] = {
         "nav_trends":  "Тенденции",
         "nav_comp":    "Сравнение",
         "nav_orb":     "3D-орбитали",
+        "nav_cost":    "Стоимость CPU",
+        "nav_hpc":     "HPC-скрипт",
+        "nav_solv":    "Растворитель",
+        "nav_lf":      "Поле лигандов",
+        "nav_bm":      "Бенчмарк",
+        "nav_op":      "Парсер вывода",
+        "nav_dft":     "DFT-карта",
+        "nav_smiles":  "SMILES",
         "export_title":    "Экспорт входного файла",
         "export_sw_ph":    "Программа",
         "export_btn":      "Создать файл",
@@ -242,5 +264,11 @@ LANG: dict[str, dict] = {
         "mol_basis":       "Предлагаемый базис",
         "mol_ecp":         "ЭКП",
         "mol_none":        "Нет",
+        "orbital_disclaimer": (
+            "⚠ Орбитали рассчитаны для атома водорода (Z = 1, водородоподобная модель). "
+            "Для других элементов орбитали Кона–Шама или ХФ существенно отличаются "
+            "— данная визуализация носит иллюстративный характер."
+        ),
+        "ecp_nmr_note": "ℹ ЭКП не используется: расчёт всех электронов обязателен для магнитных свойств (метод GIAO/IGLO).",
     },
 }

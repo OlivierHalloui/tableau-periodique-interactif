@@ -7,9 +7,12 @@ Implémentation : calcul numérique ψ_nlm sur grille 3D, isosurface Plotly.
 """
 from __future__ import annotations
 
+from functools import lru_cache
+
 import numpy as np
 from dash import html, dcc, Input, Output, State, callback
 import plotly.graph_objs as go
+from translations import LANG
 
 # ─── Catalogue des orbitales disponibles ────────────────────────────────────
 
@@ -101,8 +104,9 @@ def _Y_real(l: int, m: int, ml_type: str, theta: np.ndarray, phi: np.ndarray) ->
 
 # ─── Calcul de la grille ────────────────────────────────────────────────────
 
-def compute_orbital(n: int, l: int, m: int, ml_type: str, grid: int = 35) -> tuple:
-    """Return (x, y, z, psi_sq) on a regular grid."""
+@lru_cache(maxsize=32)
+def compute_orbital(n: int, l: int, m: int, ml_type: str, grid: int = 50) -> tuple:
+    """Return (x, y, z, psi_sq) on a regular grid. Cached — inputs must be immutable."""
     extent = max(2 * n**2 + 2, 8)
     ax = np.linspace(-extent, extent, grid)
     X, Y, Z = np.meshgrid(ax, ax, ax, indexing="ij")
@@ -179,6 +183,11 @@ def build_orbital_figure(orbital_label: str, lang: str = "fr") -> go.Figure:
 def create_orbital_layout() -> html.Div:
     orb_options = [{"label": o["label"], "value": o["label"]} for o in ORBITALS]
     return html.Div(className="tab-content-pad", children=[
+        html.Div(
+            id="orbital-disclaimer",
+            className="orbital-disclaimer",
+            children=LANG["fr"]["orbital_disclaimer"],
+        ),
         html.Div(className="trend-controls-row", children=[
             dcc.Dropdown(
                 id="orbital-select",
@@ -200,6 +209,14 @@ def create_orbital_layout() -> html.Div:
 
 
 def register_callbacks() -> None:
+
+    @callback(
+        Output("orbital-disclaimer", "children"),
+        Input("lang", "data"),
+    )
+    def update_orbital_disclaimer(lang: str | None) -> str:
+        lk = lang if lang in ("fr", "ru") else "fr"
+        return LANG[lk]["orbital_disclaimer"]
 
     @callback(
         Output("orbital-3d-chart", "figure"),

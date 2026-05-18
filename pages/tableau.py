@@ -234,6 +234,26 @@ layout = html.Div(
                         clearable=False,
                         className="filter-dropdown mol-prop-dd",
                     ),
+                    dcc.Input(
+                        id="mol-charge-input",
+                        type="number",
+                        value=0,
+                        min=-6,
+                        max=6,
+                        step=1,
+                        placeholder="Charge",
+                        className="search-input mol-charge-input",
+                    ),
+                    dcc.Input(
+                        id="mol-mult-input",
+                        type="number",
+                        value=1,
+                        min=1,
+                        max=15,
+                        step=1,
+                        placeholder="Mult.",
+                        className="search-input mol-mult-input",
+                    ),
                     html.Button(
                         "Analyser",
                         id="mol-analyse-btn",
@@ -534,7 +554,11 @@ def update_recommendations(click_data, method_key, prop_key, lang):
     rows = [(t["reco_basis_lbl"], rec["basis"])]
     if rec["aux_basis"]:
         rows.append((t["reco_aux_lbl"], rec["aux_basis"]))
-    rows.append((t["reco_ecp_lbl"], rec["ecp"] if rec["ecp"] else t["na_ecp"]))
+    ecp_display = rec["ecp"] if rec["ecp"] else t["na_ecp"]
+    rows.append((t["reco_ecp_lbl"], ecp_display))
+    # Note explicative quand l'ECP est absent pour NMR/EPR
+    if not rec["ecp"] and prop_key in ("nmr", "magnetism"):
+        rows.append(("", t.get("ecp_nmr_note", "")))
     if rec["functional"]:
         disp = f"  +  {rec['dispersion']}" if rec["dispersion"] else ""
         rows.append((t["reco_func_lbl"], rec["functional"] + disp))
@@ -621,10 +645,12 @@ def generate_export(n_clicks, store_data, software, lang):
     Input("mol-analyse-btn", "n_clicks"),
     State("mol-formula-input", "value"),
     State("mol-prop-select", "value"),
+    State("mol-charge-input", "value"),
+    State("mol-mult-input", "value"),
     State("lang", "data"),
     prevent_initial_call=False,
 )
-def analyse_molecule(n_clicks, formula, prop_key, lang):
+def analyse_molecule(n_clicks, formula, prop_key, charge, mult, lang):
     lang = lang or "fr"
     t = LANG[lang]
     lk = lang if lang in ("fr", "ru") else "fr"
@@ -634,7 +660,13 @@ def analyse_molecule(n_clicks, formula, prop_key, lang):
     if not formula or not n_clicks:
         return html.P(t["mol_no_result"], className="reco-hint"), opts, ph
 
-    res = recommend_for_molecule(formula.strip(), prop_key or "geometry", lang, ELEMENTS_BY_SYM)
+    charge = int(charge) if charge is not None else 0
+    mult   = max(1, int(mult)) if mult is not None else 1
+
+    res = recommend_for_molecule(
+        formula.strip(), prop_key or "geometry", lang, ELEMENTS_BY_SYM,
+        charge=charge, mult=mult,
+    )
     if res.get("error"):
         err = {
             "fr": f"Formule non reconnue : « {formula} »",
@@ -655,6 +687,10 @@ def analyse_molecule(n_clicks, formula, prop_key, lang):
                 html.Li([html.Strong(t["mol_method"] + " : "), res["method"]]),
                 html.Li([html.Strong(t["mol_basis"]  + " : "), res["basis"]]),
                 html.Li([html.Strong(t["mol_ecp"]    + " : "), ecp_str]),
+                html.Li([
+                    html.Strong("Charge / Multiplicité : "),
+                    f"{res['charge']:+d}  /  {res['mult']}",
+                ]),
             ])
         ]),
         html.Div(className="detail-section", children=[
